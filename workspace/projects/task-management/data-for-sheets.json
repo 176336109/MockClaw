@@ -1,0 +1,94 @@
+{
+  "tasks": [
+    {
+      "task_id": "TASK-2026-02-28-001",
+      "task_name": "Web Search API Skill创建",
+      "status": "已完成",
+      "priority": "紧急",
+      "owner": "主Agent团队",
+      "created_time": "2026-02-28 12:30",
+      "estimated_completion": "2026-02-28 12:55",
+      "actual_completion": "2026-02-28 13:18",
+      "time_spent_minutes": 48,
+      "description": "基于博查AI API创建OpenClaw Skill",
+      "outputs": "bocha-web-search Skill包、任务记录、时间统计系统",
+      "category": "技术开发"
+    },
+    {
+      "task_id": "TASK-2026-02-28-002",
+      "task_name": "飞书电子表格系统创建",
+      "status": "进行中",
+      "priority": "紧急",
+      "owner": "主Agent",
+      "created_time": "2026-02-28 13:39",
+      "estimated_completion": "2026-02-28 15:00",
+      "actual_completion": "",
+      "time_spent_minutes": 0,
+      "description": "创建飞书电子表格任务管理系统",
+      "outputs": "飞书表格系统、API集成代码、使用文档",
+      "category": "系统开发"
+    }
+  ],
+  "team_members": [
+    {
+      "name": "主Agent",
+      "role": "项目经理",
+      "expertise": "任务分配、进度监督、团队协调、系统设计",
+      "current_task": "飞书表格系统开发",
+      "status": "进行中",
+      "tasks_completed": 1,
+      "expertise_category": "项目管理"
+    },
+    {
+      "name": "飞书API专家",
+      "role": "技术分析师",
+      "expertise": "飞书API研究、文档分析、技术评估、权限管理",
+      "current_task": "已完成",
+      "status": "已完成",
+      "tasks_completed": 1,
+      "expertise_category": "技术研究"
+    },
+    {
+      "name": "编码专家",
+      "role": "开发工程师",
+      "expertise": "Python开发、Skill创建、代码实现、API集成",
+      "current_task": "已完成",
+      "status": "已完成",
+      "tasks_completed": 1,
+      "expertise_category": "开发实现"
+    },
+    {
+      "name": "任务记录员",
+      "role": "项目记录员",
+      "expertise": "过程记录、效率分析、复盘总结、文档编写",
+      "current_task": "已完成",
+      "status": "已完成",
+      "tasks_completed": 1,
+      "expertise_category": "记录分析"
+    },
+    {
+      "name": "研究专家",
+      "role": "技术研究员",
+      "expertise": "API研究、技术方案设计、可行性分析、风险评估",
+      "current_task": "已完成",
+      "status": "已完成",
+      "tasks_completed": 1,
+      "expertise_category": "技术研究"
+    }
+  ],
+  "statistics": {
+    "total_tasks": 5,
+    "completed_tasks": 4,
+    "in_progress_tasks": 1,
+    "completion_rate": 0.8,
+    "total_time_minutes": 48,
+    "average_time_per_task": 9.6,
+    "team_size": 5,
+    "expertise_distribution": {
+      "技术研究": 2,
+      "开发实现": 1,
+      "项目管理": 1,
+      "记录分析": 1
+    }
+  }
+}

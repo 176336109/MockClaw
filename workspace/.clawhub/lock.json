@@ -1,0 +1,17 @@
+{
+  "version": 1,
+  "skills": {
+    "find-skills": {
+      "version": "0.1.0",
+      "installedAt": 1772338966557
+    },
+    "multi-search-engine": {
+      "version": "2.0.1",
+      "installedAt": 1772338971896
+    },
+    "evomap-tools": {
+      "version": "1.0.0",
+      "installedAt": 1772338977931
+    }
+  }
+}

@@ -1,0 +1,156 @@
+openapi: 3.0.0
+info:
+  title: 博查AI Web Search API
+  description: 博查AI网页搜索API的OpenAPI规范
+  version: 1.0.0
+  contact:
+    name: 博查AI
+    url: https://open.bocha.cn
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+
+servers:
+  - url: https://api.bocha.cn/v1
+    description: 生产服务器
+
+paths:
+  /web-search:
+    post:
+      summary: 执行网页搜索
+      description: 使用博查AI Web Search API进行网页搜索
+      operationId: webSearch
+      security:
+        - BearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SearchRequest'
+      responses:
+        '200':
+          description: 搜索成功
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SearchResponse'
+        '400':
+          description: 请求参数错误
+        '401':
+          description: 认证失败
+        '429':
+          description: 请求过于频繁
+        '500':
+          description: 服务器内部错误
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    SearchRequest:
+      type: object
+      required:
+        - query
+      properties:
+        query:
+          type: string
+          description: 搜索关键词
+          example: "OpenAI最新进展"
+        freshness:
+          type: string
+          description: 时间过滤
+          enum: [noLimit, oneDay, oneWeek, oneMonth, oneYear]
+          default: noLimit
+          example: oneWeek
+        summary:
+          type: boolean
+          description: 是否显示摘要
+          default: false
+          example: true
+        count:
+          type: integer
+          description: 结果数量
+          minimum: 1
+          maximum: 50
+          default: 10
+          example: 10
+        include:
+          type: string
+          description: 包含特定网站
+          example: "github.com"
+        exclude:
+          type: string
+          description: 排除特定网站
+          example: "baidu.com"
+
+    SearchResult:
+      type: object
+      properties:
+        title:
+          type: string
+          description: 结果标题
+          example: "OpenAI发布最新模型"
+        url:
+          type: string
+          description: 结果URL
+          format: uri
+          example: "https://example.com/article"
+        snippet:
+          type: string
+          description: 结果摘要
+          example: "OpenAI近日发布了最新的大型语言模型..."
+        displayUrl:
+          type: string
+          description: 显示URL
+          example: "example.com"
+        datePublished:
+          type: string
+          description: 发布日期
+          format: date-time
+          example: "2024-01-15T10:30:00Z"
+        source:
+          type: string
+          description: 来源网站
+          example: "Example News"
+
+    SearchResponse:
+      type: object
+      properties:
+        query:
+          type: string
+          description: 搜索关键词
+          example: "OpenAI最新进展"
+        results:
+          type: array
+          description: 搜索结果列表
+          items:
+            $ref: '#/components/schemas/SearchResult'
+        summary:
+          type: string
+          description: 搜索摘要
+          example: "关于OpenAI最新进展的搜索摘要..."
+        metadata:
+          type: object
+          properties:
+            count:
+              type: integer
+              description: 结果数量
+              example: 10
+            freshness:
+              type: string
+              description: 使用的时间过滤
+              example: "oneWeek"
+            timestamp:
+              type: string
+              description: 搜索时间戳
+              format: date-time
+              example: "2024-01-15T12:00:00Z"
+
+tags:
+  - name: Search
+    description: 搜索相关操作

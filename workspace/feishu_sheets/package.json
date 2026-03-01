@@ -1,0 +1,19 @@
+{
+  "name": "feishu-sheets-tool",
+  "version": "1.0.0",
+  "description": "飞书电子表格工具 for OpenClaw",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@larksuiteoapi/node-sdk": "^1.0.0",
+    "@sinclair/typebox": "^0.32.0",
+    "openclaw": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^5.0.0"
+  }
+}

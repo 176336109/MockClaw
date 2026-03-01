@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "socket": {
+    "path": "/Users/mocklab/.openclaw/exec-approvals.sock",
+    "token": "nuhyWx88-wMAhfj5ACWpHns5E5Wwntkf"
+  },
+  "defaults": {},
+  "agents": {}
+}
