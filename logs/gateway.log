@@ -6187,3 +6187,6 @@ Kimi模型**特别适合**：
 2026-03-02T03:08:08.543Z [feishu] feishu[main]: dispatching to agent (session=agent:main:main)
 2026-03-02T03:08:26.148Z [feishu] skipping duplicate message om_x100b557bbfa84890b3cfe23e91b6299
 2026-03-02T03:10:42.201Z [feishu] feishu[main]: dispatch complete (queuedFinal=true, replies=6)
+2026-03-02T03:23:30.057Z [feishu] feishu[main]: received message from ou_a447c005ab197bcfcc56aa0cc97877c9 in oc_798fd1fdf0df7b46650c8ce8d503cd9b (p2p)
+2026-03-02T03:23:30.066Z [feishu] feishu[main]: dispatching to agent (session=agent:main:main)
+2026-03-02T03:23:48.011Z [feishu] skipping duplicate message om_x100b556465c5b0b4b49f91564375c97
