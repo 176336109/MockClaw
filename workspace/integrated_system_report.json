@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-03-02T14:31:41.146496",
+  "health": {
+    "timestamp": "2026-03-02T14:31:41.146448",
+    "session": {
+      "healthy": true,
+      "message": ""
+    },
+    "feedback": {
+      "healthy": true,
+      "message": ""
+    },
+    "bitable": {
+      "healthy": false,
+      "message": ""
+    },
+    "memory": {
+      "healthy": true,
+      "message": ""
+    },
+    "overall": "degraded"
+  },
+  "session": {
+    "session_id": "session_20260302_143025",
+    "message_count": 0,
+    "context_size_kb": 0.0,
+    "compression_rate": 0
+  },
+  "systems": {
+    "session_optimizer": true,
+    "status_feedback": true,
+    "bitable_core": false,
+    "memory_system": true
+  },
+  "recommendations": [
+    "系统健康状态: degraded，需要检查",
+    "多维表格核心未加载，影响任务同步"
+  ]
+}

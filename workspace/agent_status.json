@@ -1,0 +1,19 @@
+{
+  "agent_id": "main",
+  "status": "completed",
+  "current_task": "启动集成工作流",
+  "progress": 100,
+  "last_heartbeat": "2026-03-02T15:01:15.260496",
+  "start_time": "2026-03-02T14:31:41.128654",
+  "message": "所有系统启动完成！消息数量: 0",
+  "tasks": [
+    {
+      "task": "启动集成工作流",
+      "start_time": "2026-03-02T14:31:41.146074",
+      "status": "started",
+      "progress": 10
+    }
+  ],
+  "last_update": "2026-03-02T14:31:41.146703",
+  "uptime": 1774
+}

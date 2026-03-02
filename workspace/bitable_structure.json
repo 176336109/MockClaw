@@ -1,0 +1,91 @@
+{
+  "app_token": "FCRNbSo4ja4hCEs5411cNZQXnkh",
+  "table_id": "tblRmMB6LIdLHyEt",
+  "fields": {
+    "产出": "搜索Skill验证报告、问题诊断、解决方案",
+    "任务ID": "TASK-2026-02-28-003",
+    "任务名称": "验证搜索Skill可用性",
+    "优先级": "高",
+    "使用Skills": [
+      "Web搜索",
+      "Tavily搜索",
+      "Bocha搜索",
+      "代码开发"
+    ],
+    "分类": "技术开发",
+    "创建时间": 1772304228811,
+    "执行Agents": [
+      "主Agent",
+      "研究专家"
+    ],
+    "技能使用详情": "1. Web搜索: 测试web_search工具\n2. Tavily搜索: 验证API key问题\n3. Bocha搜索: 测试新开发的Skill\n4. 代码开发: 编写测试脚本",
+    "描述": "验证所有搜索相关Skill的可用性：\n1. Web搜索 (web_search工具) - 需要Brave API key\n2. Tavily搜索 (tavily-search Skill) - API key无效问题\n3. Bocha搜索 (bocha-web-search Skill) - 新开发，需要测试\n4. 其他搜索能力 (浏览器、web_fetch等)",
+    "状态": "进行中",
+    "耗时分钟": "0",
+    "负责人": "主Agent",
+    "预计完成": 1772311428811
+  },
+  "record_count": 20,
+  "sample_records": [
+    {
+      "fields": {
+        "产出": "bocha-web-search Skill包、任务记录、时间统计系统",
+        "任务ID": "TASK-2026-02-28-001",
+        "任务名称": "Web Search API Skill创建",
+        "优先级": "紧急",
+        "使用Skills": [
+          "飞书文档操作",
+          "代码开发",
+          "技能创建",
+          "Bocha搜索"
+        ],
+        "分类": "技术开发",
+        "创建时间": 1772253000000,
+        "实际完成": 1772255880000,
+        "执行Agents": [
+          "飞书API专家",
+          "编码专家",
+          "任务记录员",
+          "研究专家"
+        ],
+        "技能使用详情": "1. 飞书文档操作: 读取API文档\n2. 代码开发: 编写Skill代码\n3. 技能创建: 创建bocha-web-search Skill\n4. Bocha搜索: 集成搜索API",
+        "描述": "基于博查AI API创建OpenClaw Skill，实现Web搜索功能",
+        "状态": "已完成",
+        "耗时分钟": "48",
+        "负责人": "主Agent团队",
+        "预计完成": 1772254500000
+      },
+      "id": "recvcxNfLVhLyY",
+      "record_id": "recvcxNfLVhLyY"
+    },
+    {
+      "fields": {
+        "产出": "飞书表格系统、API集成代码、使用文档",
+        "任务ID": "TASK-2026-02-28-002",
+        "任务名称": "飞书电子表格系统创建",
+        "优先级": "紧急",
+        "使用Skills": [
+          "Bitable操作",
+          "Sheets操作",
+          "代码开发",
+          "文件操作"
+        ],
+        "分类": "系统开发",
+        "创建时间": 1772257140000,
+        "执行Agents": [
+          "主Agent",
+          "飞书API专家",
+          "编码专家"
+        ],
+        "技能使用详情": "1. Bitable操作: 创建多维表格\n2. Sheets操作: 尝试电子表格API\n3. 代码开发: 编写API调用代码\n4. 文件操作: 管理数据文件",
+        "描述": "创建飞书电子表格任务管理系统，实现任务、团队、技能管理",
+        "状态": "搁置",
+        "耗时分钟": "0",
+        "负责人": "主Agent",
+        "预计完成": 1772262000000
+      },
+      "id": "recvcxNgj7u4TK",
+      "record_id": "recvcxNgj7u4TK"
+    }
+  ]
+}

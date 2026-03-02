@@ -36,6 +36,26 @@
     "agent-evaluation": {
       "version": "1.0.0",
       "installedAt": 1772379916276
+    },
+    "context-engineering": {
+      "version": "1.0.0",
+      "installedAt": 1772431536690
+    },
+    "memory-manager": {
+      "version": "1.0.0",
+      "installedAt": 1772431608624
+    },
+    "summarizer": {
+      "version": "1.0.0",
+      "installedAt": 1772431820601
+    },
+    "brw-content-idea-generator": {
+      "version": "1.0.0",
+      "installedAt": 1772435218921
+    },
+    "auto-content-generator": {
+      "version": "1.0.0",
+      "installedAt": 1772435236521
     }
   }
 }

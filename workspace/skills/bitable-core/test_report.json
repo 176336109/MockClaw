@@ -1,0 +1,59 @@
+{
+  "timestamp": "2026-03-02T12:54:06.070759",
+  "skill": "bitable_core",
+  "importance": "core_infrastructure",
+  "health": {
+    "timestamp": "2026-03-02T12:54:04.978469",
+    "overall_status": "degraded",
+    "components": {
+      "token": {
+        "healthy": true,
+        "message": "Token获取成功",
+        "token_length": 42
+      },
+      "api": {
+        "healthy": false,
+        "message": "API返回错误: 404",
+        "status_code": 404,
+        "response_text": "404 page not found"
+      },
+      "table": {
+        "healthy": true,
+        "message": "表格访问正常",
+        "record_count": 30,
+        "table_id": "tblRmMB6LIdLHyEt"
+      },
+      "backup": {
+        "healthy": true,
+        "message": "备份系统正常",
+        "task_count": 4,
+        "log_count": 4,
+        "db_size": 16384
+      }
+    },
+    "metrics": {
+      "error_count": 0,
+      "success_count": 0,
+      "availability": 100.0
+    }
+  },
+  "statistics": {
+    "total_tasks": 4,
+    "synced_tasks": 4,
+    "failed_tasks": 0,
+    "pending_tasks": 0,
+    "sync_rate": 100.0,
+    "total_logs": 4
+  },
+  "metrics": {
+    "availability": 100.0,
+    "error_count": 0,
+    "success_count": 0,
+    "last_check": "2026-03-02T12:54:04.978469"
+  },
+  "config": {
+    "app_id": "cli_a9f2...",
+    "base_app_token": "FCRNbSo4ja4hCEs5411cNZQXnkh",
+    "tasks_table_id": "tblRmMB6LIdLHyEt"
+  }
+}

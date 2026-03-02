@@ -1,0 +1,34 @@
+{
+  "timestamp": "2026-03-02T13:52:49.812430",
+  "overall_status": "degraded",
+  "components": {
+    "token": {
+      "healthy": true,
+      "message": "Token\u83b7\u53d6\u6210\u529f",
+      "token_length": 42
+    },
+    "api": {
+      "healthy": false,
+      "message": "API\u8fde\u63a5\u9519\u8bef: 400",
+      "status_code": 400,
+      "response_text": "{\"code\":99991663,\"msg\":\"Invalid access token for authorization. Please make a request with token attached.\",\"error\":{\"message\":\"Refer to the documentation to fix the error: https://open.feishu.cn/docu"
+    },
+    "table": {
+      "healthy": false,
+      "message": "\u8868\u683cHTTP\u9519\u8bef: 400",
+      "status_code": 400
+    },
+    "backup": {
+      "healthy": true,
+      "message": "\u5907\u4efd\u7cfb\u7edf\u6b63\u5e38",
+      "task_count": 10,
+      "log_count": 9,
+      "db_size": 16384
+    }
+  },
+  "metrics": {
+    "error_count": 0,
+    "success_count": 0,
+    "availability": 100.0
+  }
+}
