@@ -8,7 +8,7 @@
 
 ## 每个会话
 
-在做任何事情之前：
+**必须记住此流程！**在做任何事情之前：
 
 ```mermaid
 sequenceDiagram
@@ -20,6 +20,11 @@ sequenceDiagram
     participant Registry
 
     User->>Agent: 用户需求
+    loop 直到用户认可
+        Agent->>User: 计划、事务ID（任务、工程）
+        User->>Agent: 反馈或确认
+    end
+     
     
     Agent->>SOUL.md: 1. 读取身份定义
     SOUL.md-->>Agent: 返回身份信息
@@ -58,186 +63,33 @@ sequenceDiagram
 3. 阅读 `memory/YYYY-MM-DD.md`（今天+昨天）获取最近的上下文
 4. **如果在主会话中**（与你的人类直接聊天）：同时阅读 `MEMORY.md`
 
-不要征求许可。直接做就是了。
-
 ---
 
-## 🗂️ 你和用户的共同记忆 - Markdown 为先
+## 🧠 记忆系统（统一执行版）
 
-**真实源头** — 以下 Markdown 文件是唯一的事实来源。这些是你的"大脑"：
+记忆规则只在本文件维护，按三层架构执行：
 
-| 文件                     | 职能                           | 何时更新           |
-| ------------------------ | ------------------------------ | ------------------ |
-| **`AGENTS_REGISTRY.md`** | 子Agent名录、职能、状态        | 新增/下架Agent时   |
-| **`TASKS_REGISTRY.md`**  | 所有讨论、任务、工程的统一日志 | 任何事务状态变化时 |
-| **`SKILLS_REGISTRY.md`** | Skill库、版本、安全审查        | Skill安装/更新时   |
+| 层级 | 存储位置 | 记录内容 | 写入时机 |
+| --- | --- | --- | --- |
+| 工作记忆 | `memory/session/当前.md` | 当前对话、临时决策 | 实时 |
+| 情景记忆 | `Tasks/<ID>/progress.md`、`Projects/<ID>/progress.md`、`memory/YYYY-MM-DD.md`、`memory/projects/*.md` | 任务进展、项目经验 | 状态变化或任务结束 |
+| 语义记忆 | `MEMORY.md`、`AGENTS_REGISTRY.md`、`TASKS_REGISTRY.md`、`SKILLS_REGISTRY.md` | 用户偏好、长期规则、系统知识 | 形成稳定模式后 |
 
-**可选的镜像** — 如果接入成功，可将上述内容同步到飞书表格：
-```url
-https://t33vwocwc8.feishu.cn/base/FCRNbSo4ja4hCEs5411cNZQXnkh
-```
+**检索顺序（固定）：** 语义记忆 → 情景记忆 → 工作记忆。
 
-**同步策略：**
-- 绝不依赖飞书作为主源头
-- Markdown 是主源，飞书只是可选镜像
-- 每周日晚 20:00 批量同步一次（而不是实时）
-- Markdown 变更 → 自动推送到飞书（单向）
-- 飞书修改 → 必须手动同步回 Markdown（禁止自动反向同步）
+**主会话与群聊边界：**
+- 主会话：可读取全部三层记忆。
+- 群聊/共享场景：禁止读取 `MEMORY.md`，只用工作记忆 + 必要情景记忆。
 
----
+**固化规则（固定）：**
+- 会话中只追加工作记忆，不直接写长期结论。
+- 会话结束先沉淀到情景记忆，再提炼到语义记忆。
+- 可复用结论写入 `MEMORY.md` 或对应 Registry；执行细节留在 progress/daily。
 
-## 🧠 三层记忆架构
-
-**设计理念：** 模拟人类记忆系统，分层管理不同时效性的信息。
-
-### 架构概览
-
-```mermaid
-graph TB
-    subgraph 第一层[第一层：工作记忆 Working Memory]
-        A1[当前会话上下文]
-        A2[临时决策和思考]
-        A3[会话级变量]
-    end
-    
-    subgraph 第二层[第二层：情景记忆 Episodic Memory]
-        B1[项目进展状态]
-        B2[任务执行记录]
-        B3[相关决策和理由]
-    end
-    
-    subgraph 第三层[第三层：语义记忆 Semantic Memory]
-        C1[用户偏好习惯]
-        C2[系统配置最佳实践]
-        C3[技能使用经验]
-    end
-    
-    A1 -->|会话结束归档| B1
-    A2 -->|经验提炼| B2
-    B1 -->|定期回顾| C1
-    B2 -->|知识固化| C2
-    B3 -->|模式识别| C3
-    
-    C1 -.->|指导决策| A1
-    C2 -.->|提供参考| A2
-    B1 -.->|项目经验| A3
-    
-    style 第一层 fill:#4dabf7
-    style 第二层 fill:#51cf66
-    style 第三层 fill:#ffd43b
-```
-
-### 第一层：工作记忆（Working Memory）
-**已经在核心提示词里面的信息，不入记忆，如果已经存在重复的，核心提示词为准，清理记忆重复内容**
-**功能：** 当前会话的即时上下文  
-**存储位置：** `memory/session/`  
-**生命周期：** 会话期间 → 会话结束后归档
-
-**内容包括：**
-- 当前任务状态和进度
-- 本次对话的完整上下文
-- 临时决策和思考过程
-- 会话级别的临时变量
-
-**文件结构：**
-```
-memory/
-└── session/
-    ├── session_20260302_1018.md  # 当前活跃会话
-    └── archive/                   # 已完成会话归档
-        ├── session_20260302_0915.md
-        └── session_20260301_1420.md
-```
-
-**自动管理：**
-- 会话开始时创建新的 session 文件
-- 会话结束时自动归档到 `archive/`
-- 超过 7 天的归档自动压缩存储
-
-### 第二层：情景记忆（Episodic Memory）
-
-**功能：** 项目/任务级别的记忆  
-**存储位置：** `memory/projects/` 和 `Tasks/`、`Projects/`  
-**生命周期：** 任务创建 → 任务完成 → 归档
-
-**内容包括：**
-- 项目完整进展和里程碑
-- 任务执行的详细记录
-- 关键决策及其理由
-- 经验教训和改进建议
-
-**文件结构：**
-```
-memory/
-└── projects/
-    ├── xiaohongshu_project.md      # 小红书项目记忆
-    ├── memory_upgrade_project.md   # 记忆升级项目记忆
-    └── index.json                  # 项目索引
-
-Tasks/
-└── TASK_20260302_001_任务名/
-    ├── README.md                   # 任务说明
-    ├── progress.md                 # 进度日志（情景记忆）
-    └── artifacts/                  # 交付物
-```
-
-**记忆提炼规则：**
-- 任务完成时，从 `progress.md` 提炼关键经验到 `memory/projects/`
-- 重要决策点必须记录理由和上下文
-- 失败和成功都同等重要，都要记录
-
-### 第三层：语义记忆（Semantic Memory）
-
-**功能：** 长期知识和通用技能  
-**存储位置：** `MEMORY.md`、`AGENTS_REGISTRY.md`、`SKILLS_REGISTRY.md`  
-**生命周期：** 持久存在，定期回顾更新
-
-**内容包括：**
-- 用户长期偏好和工作习惯
-- 系统配置和最佳实践
-- 技能使用经验和模式
-- 重要决策原则和见解
-
-**文件结构：**
-```
-MEMORY.md                    # 长期记忆主文件
-AGENTS_REGISTRY.md          # Agent 知识库
-SKILLS_REGISTRY.md          # Skill 知识库
-TASKS_REGISTRY.md           # 历史任务模式
-```
-
-**更新机制：**
-- 每周日定期回顾，从情景记忆提炼
-- 发现可复用模式时立即更新
-- 用户明确指示"记住这个"时更新
-
-### 记忆流动机制
-
-```mermaid
-flowchart LR
-    subgraph 固化[记忆固化 - 自下而上]
-        A[工作记忆] -->|会话结束| B[情景记忆]
-        B -->|任务完成| C[语义记忆]
-    end
-    
-    subgraph 检索[记忆检索 - 自上而下]
-        C -->|指导决策| B
-        B -->|提供参考| A
-    end
-    
-    style 固化 fill:#e3f2fd
-    style 检索 fill:#fff3e0
-```
-
-**固化流程（向上）：**
-1. **会话 → 项目**：会话结束时，重要对话记录到项目 `progress.md`
-2. **项目 → 长期**：任务完成时，提炼经验到 `MEMORY.md`
-3. **触发条件**：识别到可复用模式、重要决策、经验教训
-
-**检索流程（向下）：**
-1. **长期 → 项目**：启动新任务时，查找类似历史经验
-2. **项目 → 会话**：会话中需要时，调取相关项目记忆
-3. **优先级**：语义记忆 > 情景记忆 > 工作记忆
+**唯一事实源（必须同步）：**
+- `AGENTS_REGISTRY.md`：Agent 名录与能力状态
+- `TASKS_REGISTRY.md`：讨论/任务/工程状态
+- `SKILLS_REGISTRY.md`：Skill 版本与安全审查
 
 ---
 
@@ -339,26 +191,25 @@ memory/
 根目录**ONLY**允许以下文件存在：
 
 <!-- ...existing code... -->
-| 类型 | 名称 | 说明 |
-|------|------|------|
-| **核心配置** | `AGENTS.md` | 本文件，工作空间规则 |
-| | `AGENTS_REGISTRY.md` | 子Agent名录，markdown表格 |
-| | `TASKS_REGISTRY.md` | 事务统一日志，markdown表格 |
-| | `SKILLS_REGISTRY.md` | Skill库管理，markdown表格 |
-| **记忆系统** | `MEMORY.md` | 长期记忆（语义记忆层） |
-| | `SOUL.md` | 身份定义 |
-| | `USER.md` | 用户信息 |
-| | `IDENTITY.md` | 身份补充定义 |
-| | `THREE_LAYER_MEMORY_ARCHITECTURE.md` | 三层记忆架构说明 |
-| **运维** | `HEARTBEAT.md` | 心跳检查清单 |
-| | `BOOTSTRAP.md` | 首次启动配置（完成后删除） |
-| **目录** | `memory/` | 三层记忆系统文件夹 |
-| | `Tasks/` | 任务文件夹 |
-| | `Projects/` | 工程文件夹 |
-| | `SubAgents/` | 子Agent文件夹 |
-| | `skills/` | Skill库文件夹 |
-| | `staging/` | 暂存未分类文件 |
-| | `archive/` | 历史存档 |
+| 类型         | 名称                                 | 说明                       |
+| ------------ | ------------------------------------ | -------------------------- |
+| **核心配置** | `AGENTS.md`                          | 本文件，工作空间规则       |
+|              | `AGENTS_REGISTRY.md`                 | 子Agent名录，markdown表格  |
+|              | `TASKS_REGISTRY.md`                  | 事务统一日志，markdown表格 |
+|              | `SKILLS_REGISTRY.md`                 | Skill库管理，markdown表格  |
+| **记忆系统** | `MEMORY.md`                          | 长期记忆（语义记忆层）     |
+|              | `SOUL.md`                            | 身份定义                   |
+|              | `USER.md`                            | 用户信息                   |
+|              | `IDENTITY.md`                        | 身份补充定义               |
+| **运维**     | `HEARTBEAT.md`                       | 心跳检查清单               |
+|              | `BOOTSTRAP.md`                       | 首次启动配置（完成后删除） |
+| **目录**     | `memory/`                            | 三层记忆系统文件夹         |
+|              | `Tasks/`                             | 任务文件夹                 |
+|              | `Projects/`                          | 工程文件夹                 |
+|              | `SubAgents/`                         | 子Agent文件夹              |
+|              | `skills/`                            | Skill库文件夹              |
+|              | `staging/`                           | 暂存未分类文件             |
+|              | `archive/`                           | 历史存档                   |
 <!-- ...existing code... -->
 
 ### 禁止在根目录创建的内容
@@ -426,49 +277,11 @@ staging/
 
 ---
 
-## 记忆管理详解
+## 记忆执行口径（简版）
 
-### 📝 写下来 - 不要只是"心里记着"！
-
-- **记忆是有限的** — 如果你想记住某事，就把它写到文件中
-- "心理笔记"无法在会话重启后存活。文件可以。
-- 当有人说"记住这个" → 根据内容选择合适的记忆层
-- 当你学到教训 → 更新对应的 Registry 或 MEMORY.md
-- 当你犯错误 → 记录下来，这样未来的你不会重复
-- **文本 > 大脑** 📝
-
-### 记忆写入规则
-
-**根据时效性和重要性选择层级：**
-
-| 内容类型 | 记忆层 | 存储位置 | 示例 |
-|---------|--------|---------|------|
-| 当前对话上下文 | 工作记忆 | `memory/session/当前.md` | "用户刚才问了XXX" |
-| 任务进度和决策 | 情景记忆 | `Tasks/TASK_ID/progress.md` | "选择方案A因为XXX" |
-| 可复用经验 | 情景记忆 | `memory/projects/项目.md` | "这类问题的解决模式" |
-| 用户偏好 | 语义记忆 | `MEMORY.md` | "用户喜欢简洁的回复" |
-| 系统知识 | 语义记忆 | `*_REGISTRY.md` | "Skill的最佳实践" |
-
-### 🧠 MEMORY.md - 你的长期记忆（语义记忆层）
-
-- **仅在主会话中加载**（与你的人类直接聊天）
-- **不要在共享上下文中加载**（Discord、群聊、与其他人的会话）
-- 这是为了**安全** — 包含不应泄漏给陌生人的个人上下文
-- 你可以在主会话中自由**读取、编辑和更新** MEMORY.md
-- **记录重要事件、想法、决策、观点、经验教训**
-- 这是你精选的记忆 — 提炼的精华，而不是原始日志
-
-### 记忆检索策略
-
-**按优先级检索：**
-1. **语义记忆优先** — 长期知识和模式（MEMORY.md, *_REGISTRY.md）
-2. **情景记忆补充** — 相关项目经验（memory/projects/, Tasks/）
-3. **工作记忆辅助** — 当前会话上下文（memory/session/）
-
-**检索触发条件：**
-- 用户提到类似的问题 → 检索相关情景记忆
-- 启动新任务 → 检索类似任务的经验
-- 遇到困难 → 检索相关的解决模式
+- 记录优先级：先写 `memory/session/`，再沉淀到 `progress.md` / `memory/projects/`，最后提炼到 `MEMORY.md` 或 Registry。
+- 语义记忆必须少而稳：只保留可复用的偏好、规则、模式，不写流水账。
+- 一切状态变化以 Registry 与事务目录为准，避免只在对话里“口头记住”。
 
 ---
 
@@ -596,7 +409,7 @@ flowchart LR
 
 1. 查看 `TASKS_REGISTRY.md` — 有没有变成"等待指示"的任务？
 2. 查看 `SKILLS_REGISTRY.md` — 有没有到期的Skill审查？
-3. 查看 `memory/YYYY-MM-DD.md` — 有什么应该记入MEMORY.md的？（**记忆固化**）
+3. 查看 `memory/YYYY-MM-DD.md` — 有什么应该提炼到语义记忆？（**记忆固化**）
 4. 查看所有进行中的Task文件夹 — 需要更新进度吗？（**情景记忆更新**）
 5. **清洁检查** — 根目录是否有零散文件？
 6. **会话归档** — 是否有需要归档的 session 文件？
