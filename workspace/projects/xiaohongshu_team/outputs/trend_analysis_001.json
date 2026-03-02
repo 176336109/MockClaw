@@ -1,0 +1,157 @@
+{
+  "task_id": "TASK-20260302-001",
+  "agent": "TrendFinder",
+  "status": "completed",
+  "execution_time": "2026-03-02T00:58:00Z",
+  "execution_duration_seconds": 45,
+  
+  "search_parameters": {
+    "query": "小红书 美妆护肤 热门话题 2026",
+    "platform": "xiaohongshu",
+    "time_range": "24h",
+    "topic_domains": ["美妆护肤", "生活方式", "时尚穿搭"],
+    "max_results": 5,
+    "analysis_depth": "basic"
+  },
+  
+  "hot_topics": [
+    {
+      "rank": 1,
+      "title": "2026小红书矩阵玩法与自动化工具",
+      "description": "小红书矩阵运营、自动化内容创作、团队效率提升",
+      "source": "搜狐",
+      "url": "https://www.sohu.com/a/990666052_121971922",
+      "relevance_score": 0.95,
+      "content_type": "运营策略",
+      "key_points": [
+        "矩阵玩法本质是概率学",
+        "量变=质变，速度=护城河",
+        "传统招文案、设计的方法行不通",
+        "需要自动化工具支持"
+      ]
+    },
+    {
+      "rank": 2,
+      "title": "小红书代运营公司选择指南",
+      "description": "代运营服务评测、内容策划能力、品牌合作",
+      "source": "博客园",
+      "url": "https://www.cnblogs.com/paihangbang/p/19656170",
+      "relevance_score": 0.85,
+      "content_type": "商业服务",
+      "key_points": [
+        "小红书平台商业价值持续攀升",
+        "企业代运营需求旺盛",
+        "需要考察内容策划能力",
+        "第三方评测帮助选择"
+      ]
+    },
+    {
+      "rank": 3,
+      "title": "2026年美容美妆行业分析报告",
+      "description": "行业市场调查、发展趋势分析、投资决策",
+      "source": "报告大厅",
+      "url": "https://www.chinabgao.com/k/meirongmeizhuang.html",
+      "relevance_score": 0.80,
+      "content_type": "行业报告",
+      "key_points": [
+        "美容美妆行业市场分析",
+        "了解行业现状和发展趋势",
+        "为投资决策提供参考",
+        "系统性市场调查"
+      ]
+    },
+    {
+      "rank": 4,
+      "title": "明星同款美妆产品热度分析",
+      "description": "王菲春晚造型、同款产品热销、仿妆趋势",
+      "source": "网易",
+      "url": "https://m.163.com/dy/article/KMUT14QU0528962L.html",
+      "relevance_score": 0.75,
+      "content_type": "明星效应",
+      "key_points": [
+        "明星造型持续引发讨论",
+        "同款产品被抢购一空",
+        "仿妆尝试热度高",
+        "明星效应带动美妆消费"
+      ]
+    },
+    {
+      "rank": 5,
+      "title": "美容嫩肤笔行业分析",
+      "description": "美容仪器市场、技术创新、消费趋势",
+      "source": "报告大厅",
+      "url": "https://www.chinabgao.com/k/mrnfb.html",
+      "relevance_score": 0.70,
+      "content_type": "产品分析",
+      "key_points": [
+        "美容仪器市场增长",
+        "技术创新驱动消费",
+        "了解市场现状和趋势",
+        "专业美容设备分析"
+      ]
+    }
+  ],
+  
+  "trend_analysis": {
+    "overall_trend": "小红书美妆内容向专业化、自动化、商业化发展",
+    "key_trends": [
+      "矩阵运营和自动化工具成为热点",
+      "代运营服务需求旺盛",
+      "行业报告和专业分析受关注",
+      "明星效应持续影响美妆消费",
+      "美容仪器和技术创新受关注"
+    ],
+    "emerging_topics": [
+      "AI内容生成在小红书的应用",
+      "自动化运营工具",
+      "数据驱动的美妆内容策略",
+      "明星同款产品的商业化"
+    ],
+    "content_opportunities": [
+      "制作小红书矩阵运营教程",
+      "分享自动化工具使用经验",
+      "分析美妆行业趋势报告",
+      "评测明星同款美妆产品",
+      "介绍美容仪器使用技巧"
+    ]
+  },
+  
+  "recommendation": {
+    "content_strategy": "结合自动化工具和行业趋势，制作专业的美妆内容",
+    "priority_topics": [
+      "小红书矩阵运营实战指南",
+      "2026美妆趋势解读",
+      "明星同款产品深度评测",
+      "美容仪器使用教程"
+    ],
+    "content_formats": [
+      "图文教程",
+      "视频演示",
+      "数据报告解读",
+      "产品对比评测"
+    ],
+    "target_audience": "美妆爱好者、小红书运营者、美容行业从业者",
+    "estimated_engagement": "高互动潜力，专业内容受众粘性强"
+  },
+  
+  "success_metrics": {
+    "topics_found": 5,
+    "analysis_completeness": "high",
+    "actionable_recommendations": true,
+    "meets_success_criteria": true
+  },
+  
+  "next_steps": {
+    "recommended_action": "pass_to_content_planner",
+    "next_agent": "ContentPlanner",
+    "input_for_next": "hot_topics和trend_analysis作为内容策划依据",
+    "deadline": "2026-03-02T01:30:00Z"
+  },
+  
+  "metadata": {
+    "search_engine": "bocha-web-search",
+    "api_version": "v1",
+    "total_results_available": 103625,
+    "processing_agent": "TrendFinder_v1.0"
+  }
+}

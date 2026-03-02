@@ -1,0 +1,68 @@
+{
+  "task_id": "TASK-20260302-002",
+  "task_type": "content_planning",
+  "assigned_agent": "ContentPlanner",
+  "created_by": "AgentOrchestrator",
+  "created_at": "2026-03-02T01:00:00Z",
+  "triggered_by": "TASK-20260302-001",
+  
+  "input": {
+    "source_data": "projects/xiaohongshu_team/outputs/trend_analysis_001.json",
+    "content_domains": ["美妆护肤", "生活方式", "时尚穿搭"],
+    "target_platform": "xiaohongshu",
+    "content_goals": ["品牌曝光", "用户互动", "粉丝增长"],
+    "content_types": ["图文教程", "产品评测", "趋势解读", "使用教程"]
+  },
+  
+  "processing_requirements": {
+    "analyze_trends": true,
+    "identify_opportunities": true,
+    "create_content_plan": true,
+    "generate_topic_list": true,
+    "suggest_content_calendar": true
+  },
+  
+  "output_expected": {
+    "format": "json",
+    "required_deliverables": [
+      "content_strategy",
+      "topic_list",
+      "content_calendar",
+      "success_metrics"
+    ],
+    "output_path": "projects/xiaohongshu_team/outputs/content_plan_001.json"
+  },
+  
+  "constraints": {
+    "time_limit_minutes": 20,
+    "content_quality": "professional",
+    "originality_requirement": "high",
+    "platform_compliance": "strict"
+  },
+  
+  "success_criteria": {
+    "min_topics": 3,
+    "strategy_completeness": "comprehensive",
+    "actionable_plan": true,
+    "metrics_defined": true
+  },
+  
+  "next_steps": {
+    "on_success": "pass_to_agent_council",
+    "on_failure": "escalate_to_agent_orchestrator",
+    "next_agent": "AgentCouncil"
+  },
+  
+  "dependencies": {
+    "requires": ["TASK-20260302-001"],
+    "input_files": ["trend_analysis_001.json"],
+    "skills_required": ["ontology", "content_planning"]
+  },
+  
+  "metadata": {
+    "project": "xiaohongshu_agent_team",
+    "phase": "phase1_basic_architecture",
+    "priority": "high",
+    "version": "1.0"
+  }
+}

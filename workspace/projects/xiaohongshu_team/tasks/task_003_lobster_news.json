@@ -1,0 +1,91 @@
+{
+  "task_id": "TASK-20260302-003",
+  "task_type": "special_project",
+  "project_name": "全自动龙虾资讯",
+  "assigned_agent": "AgentOrchestrator",
+  "created_by": "HumanSupervisor",
+  "created_at": "2026-03-02T01:13:00Z",
+  
+  "mission_statement": "创建全自动龙虾资讯系统，每半天根据热门OpenClaw信息发布小红书图文，维护到飞书文档，审核后自动发布",
+  
+  "requirements": {
+    "frequency": "每半天一次（12小时间隔）",
+    "source": "热门OpenClaw信息",
+    "output_format": "小红书图文",
+    "storage": "飞书文档",
+    "approval_flow": "人工审核 → 自动发布",
+    "content_quality": "专业、有趣、有价值"
+  },
+  
+  "deliverables": {
+    "phase1": {
+      "name": "内容收集和生成系统",
+      "items": [
+        "OpenClaw信息收集机制",
+        "小红书图文生成模板",
+        "飞书文档维护系统"
+      ]
+    },
+    "phase2": {
+      "name": "审核和发布系统",
+      "items": [
+        "人工审核界面",
+        "自动发布机制",
+        "数据反馈循环"
+      ]
+    }
+  },
+  
+  "success_criteria": {
+    "content_quality": "专业、准确、有趣",
+    "timeliness": "每12小时准时发布",
+    "automation_level": "全自动内容生成",
+    "user_satisfaction": "审核通过率 > 80%"
+  },
+  
+  "team_assignment": {
+    "trend_finder": "收集OpenClaw热门信息",
+    "content_planner": "策划龙虾资讯内容",
+    "copywriter": "撰写小红书文案",
+    "image_creator": "生成龙虾主题图片",
+    "knowledge_manager": "维护飞书文档",
+    "agent_council": "质量审核决策"
+  },
+  
+  "technical_requirements": {
+    "data_sources": ["OpenClaw社区、GitHub、文档"],
+    "content_templates": "小红书图文标准格式",
+    "storage_system": "飞书文档API",
+    "scheduling_system": "定时任务",
+    "approval_workflow": "人工确认机制"
+  },
+  
+  "content_guidelines": {
+    "tone": "专业但有趣，技术但不枯燥",
+    "target_audience": "OpenClaw用户、AI爱好者、技术人群",
+    "value_proposition": "提供有价值的OpenClaw资讯和技巧",
+    "visual_style": "科技感、简洁、有设计感"
+  },
+  
+  "timeline": {
+    "immediate": "创建任务并分配给团队",
+    "today": "完成第一个龙虾资讯内容",
+    "this_week": "建立自动化流程",
+    "ongoing": "每半天自动运行"
+  },
+  
+  "approval_process": {
+    "step1": "系统生成内容",
+    "step2": "保存到飞书文档",
+    "step3": "人工审核内容",
+    "step4": "审核通过后自动发布",
+    "step5": "数据收集和优化"
+  },
+  
+  "metadata": {
+    "project_priority": "high",
+    "innovation_level": "high",
+    "demonstration_value": "展示Agent团队全自动能力",
+    "version": "1.0"
+  }
+}

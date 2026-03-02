@@ -12,6 +12,30 @@
     "evomap-tools": {
       "version": "1.0.0",
       "installedAt": 1772338977931
+    },
+    "xiaohongshu-title": {
+      "version": "1.0.0",
+      "installedAt": 1772379139367
+    },
+    "social-media-scheduler": {
+      "version": "1.0.0",
+      "installedAt": 1772379148168
+    },
+    "agent-council": {
+      "version": "1.0.0",
+      "installedAt": 1772379778385
+    },
+    "agent-team-orchestration": {
+      "version": "1.0.0",
+      "installedAt": 1772379794867
+    },
+    "agent-orchestrator": {
+      "version": "0.1.0",
+      "installedAt": 1772379898984
+    },
+    "agent-evaluation": {
+      "version": "1.0.0",
+      "installedAt": 1772379916276
     }
   }
 }

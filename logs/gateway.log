@@ -6016,3 +6016,174 @@ Kimi模型**特别适合**：
 2026-03-01T14:17:25.935Z [feishu] skipping duplicate message om_x100b5570e8d4d4a4b3d69d06966c56a
 2026-03-01T14:22:34.928Z [feishu] feishu[main]: dispatch complete (queuedFinal=true, replies=6)
 2026-03-01T22:57:04.038+08:00 Warning: no IPv4 address available on utun4
+2026-03-01T15:11:25.598Z [feishu] feishu[main]: received message from ou_a447c005ab197bcfcc56aa0cc97877c9 in oc_798fd1fdf0df7b46650c8ce8d503cd9b (p2p)
+2026-03-01T15:11:25.608Z [feishu] feishu[main]: dispatching to agent (session=agent:main:main)
+2026-03-01T15:11:43.161Z [feishu] skipping duplicate message om_x100b55713f71a8a0b342da04d517f6e
+2026-03-01T15:21:25.777Z [feishu] feishu[main]: dispatch complete (queuedFinal=true, replies=10)
+2026-03-01T15:28:46.724Z [feishu] feishu[main]: received message from ou_a447c005ab197bcfcc56aa0cc97877c9 in oc_798fd1fdf0df7b46650c8ce8d503cd9b (p2p)
+2026-03-01T15:28:46.731Z [feishu] feishu[main]: dispatching to agent (session=agent:main:main)
+2026-03-01T15:29:04.073Z [feishu] skipping duplicate message om_x100b5571fc0cc078c37c0853eb136a4
+2026-03-01T15:33:37.363Z [feishu] feishu[main]: dispatch complete (queuedFinal=true, replies=13)
+2026-03-01T15:41:11.460Z [feishu] feishu[main]: received message from ou_a447c005ab197bcfcc56aa0cc97877c9 in oc_798fd1fdf0df7b46650c8ce8d503cd9b (p2p)
+2026-03-01T15:41:11.467Z [feishu] feishu[main]: dispatching to agent (session=agent:main:main)
+2026-03-01T15:41:28.131Z [feishu] skipping duplicate message om_x100b5571af8b3ca0c345879f2329b2c
+2026-03-01T15:46:46.595Z [feishu] feishu[main]: dispatch complete (queuedFinal=true, replies=10)
+2026-03-01T15:47:41.888Z [feishu] feishu[main]: received message from ou_a447c005ab197bcfcc56aa0cc97877c9 in oc_798fd1fdf0df7b46650c8ce8d503cd9b (p2p)
+2026-03-01T15:47:41.895Z [feishu] feishu[main]: dispatching to agent (session=agent:main:main)
+2026-03-01T15:48:00.978Z [feishu] skipping duplicate message om_x100b5571b70bc4a0c35b268896429d9
+2026-03-01T15:50:33.293Z [feishu] feishu[main]: dispatch complete (queuedFinal=true, replies=3)
+2026-03-01T15:51:14.432Z [feishu] feishu[main]: received message from ou_a447c005ab197bcfcc56aa0cc97877c9 in oc_798fd1fdf0df7b46650c8ce8d503cd9b (p2p)
+2026-03-01T15:51:14.435Z [feishu] feishu[main]: dispatching to agent (session=agent:main:main)
+2026-03-01T15:51:32.086Z [feishu] skipping duplicate message om_x100b557249ce58a0c3f7af5b9effeac
+2026-03-01T15:56:50.488Z [feishu] feishu[main]: dispatch complete (queuedFinal=true, replies=10)
+2026-03-01T15:57:58.450Z [feishu] feishu[main]: received message from ou_a447c005ab197bcfcc56aa0cc97877c9 in oc_798fd1fdf0df7b46650c8ce8d503cd9b (p2p)
+2026-03-01T15:57:58.457Z [feishu] feishu[main]: dispatching to agent (session=agent:main:main)
+2026-03-01T15:58:16.470Z [feishu] skipping duplicate message om_x100b55726e83f8a4c345c6fbb1545e0
+2026-03-02T00:00:36.823+08:00 [error]: [
+  [
+    {
+      message: 'Request failed with status code 400',
+      config: [Object],
+      request: [Object],
+      response: [Object]
+    },
+    {
+      code: 99992402,
+      msg: 'field validation failed',
+      error: [Object],
+      log_id: '2026030200003690C38A7B1710F234EDBB',
+      troubleshooter: '排查建议查看(Troubleshooting suggestions): https://open.feishu.cn/search?from=openapi&log_id=2026030200003690C38A7B1710F234EDBB&code=99992402&method_id=7055124481601699842',
+      field_violations: [Array]
+    }
+  ]
+]
+2026-03-02T00:01:52.720+08:00 [error]: [
+  [
+    {
+      message: 'Request failed with status code 400',
+      config: [Object],
+      request: [Object],
+      response: [Object]
+    },
+    {
+      code: 99992402,
+      msg: 'field validation failed',
+      error: [Object],
+      log_id: '20260302000152225D2E6CB13231365935',
+      troubleshooter: '排查建议查看(Troubleshooting suggestions): https://open.feishu.cn/search?from=openapi&log_id=20260302000152225D2E6CB13231365935&code=99992402&method_id=7055124481601699842',
+      field_violations: [Array]
+    }
+  ]
+]
+2026-03-02T00:05:13.035+08:00 [error]: [
+  [
+    {
+      message: 'Request failed with status code 400',
+      config: [Object],
+      request: [Object],
+      response: [Object]
+    },
+    {
+      code: 99992402,
+      msg: 'field validation failed',
+      error: [Object],
+      log_id: '20260302000512E9AF95C10B426B42AFAD',
+      troubleshooter: '排查建议查看(Troubleshooting suggestions): https://open.feishu.cn/search?from=openapi&log_id=20260302000512E9AF95C10B426B42AFAD&code=99992402&method_id=7055124481601699842',
+      field_violations: [Array]
+    }
+  ]
+]
+2026-03-01T16:07:58.590Z [feishu] feishu[main]: dispatch complete (queuedFinal=true, replies=5)
+2026-03-01T16:16:27.953Z [feishu] feishu[main]: received message from ou_a447c005ab197bcfcc56aa0cc97877c9 in oc_798fd1fdf0df7b46650c8ce8d503cd9b (p2p)
+2026-03-01T16:16:27.958Z [feishu] feishu[main]: dispatching to agent (session=agent:main:main)
+2026-03-01T16:16:47.126Z [feishu] skipping duplicate message om_x100b55722b64e4a0c3f8be1ccb12de4
+2026-03-01T16:18:08.504Z [feishu] feishu[main]: dispatch complete (queuedFinal=true, replies=1)
+2026-03-01T16:20:50.017Z [feishu] feishu[main]: received message from ou_a447c005ab197bcfcc56aa0cc97877c9 in oc_798fd1fdf0df7b46650c8ce8d503cd9b (p2p)
+2026-03-01T16:20:50.022Z [feishu] feishu[main]: dispatching to agent (session=agent:main:main)
+2026-03-01T16:21:07.202Z [feishu] skipping duplicate message om_x100b55723b32d0a0c3642f5d668cb01
+2026-03-02T00:23:35.544+08:00 [error]: [
+  [
+    {
+      message: 'Request failed with status code 400',
+      config: [Object],
+      request: [Object],
+      response: [Object]
+    },
+    {
+      code: 99992402,
+      msg: 'field validation failed',
+      error: [Object],
+      field_violations: [Array],
+      log_id: '20260302002335AD6B8C2AE483262116FE',
+      troubleshooter: '排查建议查看(Troubleshooting suggestions): https://open.feishu.cn/search?from=openapi&log_id=20260302002335AD6B8C2AE483262116FE&code=99992402&method_id=7055124481601699842'
+    }
+  ]
+]
+2026-03-01T16:25:33.928Z [feishu] feishu[main]: dispatch complete (queuedFinal=true, replies=7)
+2026-03-01T16:26:45.611Z [feishu] feishu[main]: received message from ou_a447c005ab197bcfcc56aa0cc97877c9 in oc_798fd1fdf0df7b46650c8ce8d503cd9b (p2p)
+2026-03-01T16:26:45.615Z [feishu] feishu[main]: dispatching to agent (session=agent:main:main)
+2026-03-01T16:27:03.355Z [feishu] skipping duplicate message om_x100b5572c28e64a0c3a8e7893de1fc3
+2026-03-01T16:33:34.857Z [feishu] feishu[main]: dispatch complete (queuedFinal=true, replies=20)
+2026-03-01T16:36:49.207Z [feishu] feishu[main]: received message from ou_a447c005ab197bcfcc56aa0cc97877c9 in oc_798fd1fdf0df7b46650c8ce8d503cd9b (p2p)
+2026-03-01T16:36:49.212Z [feishu] feishu[main]: dispatching to agent (session=agent:main:main)
+2026-03-01T16:37:07.054Z [feishu] skipping duplicate message om_x100b5572ff3f2130c258c66b609cd2d
+2026-03-02T00:39:11.541+08:00 [error]: [
+  [
+    {
+      message: 'Request failed with status code 400',
+      config: [Object],
+      request: [Object],
+      response: [Object]
+    },
+    {
+      code: 99992402,
+      msg: 'field validation failed',
+      error: [Object],
+      log_id: '2026030200391197A5D1B7FC9F69372317',
+      troubleshooter: '排查建议查看(Troubleshooting suggestions): https://open.feishu.cn/search?from=openapi&log_id=2026030200391197A5D1B7FC9F69372317&code=99992402&method_id=7055124481601699842',
+      field_violations: [Array]
+    }
+  ]
+]
+2026-03-01T16:39:49.526Z [feishu] feishu[main]: dispatch complete (queuedFinal=true, replies=11)
+2026-03-01T16:53:59.609Z [feishu] feishu[main]: received message from ou_a447c005ab197bcfcc56aa0cc97877c9 in oc_798fd1fdf0df7b46650c8ce8d503cd9b (p2p)
+2026-03-01T16:53:59.616Z [feishu] feishu[main]: dispatching to agent (session=agent:main:main)
+2026-03-01T16:54:18.046Z [feishu] skipping duplicate message om_x100b5572bcac38a4c35bb308b6fd470
+2026-03-01T17:01:56.497Z [feishu] feishu[main]: dispatch complete (queuedFinal=true, replies=18)
+2026-03-01T17:12:48.224Z [feishu] feishu[main]: received message from ou_a447c005ab197bcfcc56aa0cc97877c9 in oc_798fd1fdf0df7b46650c8ce8d503cd9b (p2p)
+2026-03-01T17:12:48.231Z [feishu] feishu[main]: dispatching to agent (session=agent:main:main)
+2026-03-01T17:13:05.094Z [feishu] skipping duplicate message om_x100b557376148ca0c11a599617f0dea
+2026-03-02T01:19:16.010+08:00 [error]: [
+  [
+    {
+      message: 'Request failed with status code 400',
+      config: [Object],
+      request: [Object],
+      response: [Object]
+    },
+    {
+      code: 99992402,
+      msg: 'field validation failed',
+      error: [Object],
+      log_id: '20260302011915A157C5C3513E843D0C2E',
+      troubleshooter: '排查建议查看(Troubleshooting suggestions): https://open.feishu.cn/search?from=openapi&log_id=20260302011915A157C5C3513E843D0C2E&code=99992402&method_id=7055124481601699842',
+      field_violations: [Array]
+    }
+  ]
+]
+2026-03-01T17:20:35.776Z [feishu] feishu[main]: dispatch complete (queuedFinal=true, replies=11)
+2026-03-02T02:18:28.864Z [feishu] feishu[main]: received message from ou_a447c005ab197bcfcc56aa0cc97877c9 in oc_798fd1fdf0df7b46650c8ce8d503cd9b (p2p)
+2026-03-02T02:18:28.871Z [feishu] feishu[main]: dispatching to agent (session=agent:main:main)
+2026-03-02T02:18:47.037Z [feishu] skipping duplicate message om_x100b557b79f9c0acb2d9291ce596eb0
+2026-03-02T02:20:58.850Z [feishu] feishu[main]: dispatch complete (queuedFinal=true, replies=15)
+2026-03-02T02:58:15.928Z [feishu] feishu[main]: received message from ou_a447c005ab197bcfcc56aa0cc97877c9 in oc_798fd1fdf0df7b46650c8ce8d503cd9b (p2p)
+2026-03-02T02:58:15.938Z [feishu] feishu[main]: dispatching to agent (session=agent:main:main)
+2026-03-02T02:58:34.193Z [feishu] skipping duplicate message om_x100b557b82aa00e4b3b72439b5d8579
+2026-03-02T02:59:20.327Z [feishu] feishu[main]: dispatch complete (queuedFinal=true, replies=7)
+2026-03-02T03:04:00.786Z [ws] ⇄ res ✓ node.list 61ms conn=ab41c54a…36e1 id=a4576cfe…5360
+2026-03-02T03:04:09.561Z [ws] ⇄ res ✓ config.get 255ms conn=ab41c54a…36e1 id=45155839…1368
+2026-03-02T03:04:10.969Z [ws] ⇄ res ✓ skills.status 124ms conn=ab41c54a…36e1 id=9c751826…6907
+2026-03-02T03:08:08.536Z [feishu] feishu[main]: received message from ou_a447c005ab197bcfcc56aa0cc97877c9 in oc_798fd1fdf0df7b46650c8ce8d503cd9b (p2p)
+2026-03-02T03:08:08.543Z [feishu] feishu[main]: dispatching to agent (session=agent:main:main)
+2026-03-02T03:08:26.148Z [feishu] skipping duplicate message om_x100b557bbfa84890b3cfe23e91b6299
+2026-03-02T03:10:42.201Z [feishu] feishu[main]: dispatch complete (queuedFinal=true, replies=6)

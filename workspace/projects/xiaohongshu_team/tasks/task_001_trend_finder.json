@@ -1,0 +1,50 @@
+{
+  "task_id": "TASK-20260302-001",
+  "task_type": "trend_discovery",
+  "assigned_agent": "TrendFinder",
+  "created_by": "AgentOrchestrator",
+  "created_at": "2026-03-02T00:57:00Z",
+  
+  "input": {
+    "platform": "xiaohongshu",
+    "time_range": "24h",
+    "topic_domains": ["美妆护肤", "生活方式", "时尚穿搭"],
+    "max_results": 10,
+    "analysis_depth": "basic"
+  },
+  
+  "output_expected": {
+    "format": "json",
+    "required_fields": [
+      "hot_topics",
+      "trend_analysis",
+      "recommendation"
+    ],
+    "output_path": "projects/xiaohongshu_team/outputs/trend_analysis_001.json"
+  },
+  
+  "constraints": {
+    "time_limit_minutes": 15,
+    "resource_limit": "normal",
+    "quality_standard": "professional"
+  },
+  
+  "success_criteria": {
+    "min_topics": 5,
+    "analysis_completeness": "high",
+    "actionable_recommendations": true
+  },
+  
+  "next_steps": {
+    "on_success": "pass_to_content_planner",
+    "on_failure": "notify_agent_orchestrator",
+    "next_agent": "ContentPlanner"
+  },
+  
+  "metadata": {
+    "project": "xiaohongshu_agent_team",
+    "phase": "phase1_basic_architecture",
+    "priority": "high",
+    "version": "1.0"
+  }
+}
