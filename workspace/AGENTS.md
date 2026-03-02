@@ -12,11 +12,14 @@
 
 ```mermaid
 sequenceDiagram
+    participant User
     participant Agent
     participant SOUL.md
     participant USER.md
     participant Memory
     participant Registry
+
+    User->>Agent: 用户需求
     
     Agent->>SOUL.md: 1. 读取身份定义
     SOUL.md-->>Agent: 返回身份信息
@@ -36,6 +39,16 @@ sequenceDiagram
     Registry-->>Agent: 返回Agent/任务/Skill状态
     
     Agent->>Agent: 6. 准备就绪，开始工作
+    
+    Agent->>Registry: 7. 更新任务状态为"进行中"
+    Registry-->>Agent: 确认更新
+    
+    Agent->>Agent: 8. 执行任务
+    
+    Agent->>Registry: 9. 更新任务状态为"完成"
+    Registry-->>Agent: 确认更新
+    
+    Agent->>User: 10. 告知任务结果
 ```
 
 **启动清单：**
@@ -460,6 +473,11 @@ staging/
 ---
 
 ## Skill 管理
+
+### Skill安装位置
+- `~/.openclaw/skills`
+- `~/.openclaw/workspace/skills`
+- `~/.openclaw/workspace/.clawhub/lock.json` 下面有注册的内建Skills
 
 ### Skill 生命周期
 

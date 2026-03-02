@@ -1,0 +1,229 @@
+{
+  "verification_time": "2026-03-02T18:56:46.174708",
+  "total_skills": 13,
+  "total_size_mb": 0.313,
+  "categories": {
+    "内容创作": [
+      "social-media-scheduler",
+      "auto-content-generator",
+      "brw-content-idea-generator",
+      "xiaohongshu-title"
+    ],
+    "Agent管理": [
+      "agent-team-orchestration",
+      "agent-council",
+      "agent-orchestrator",
+      "agent-evaluation"
+    ],
+    "记忆管理": [
+      "memory-manager",
+      "context-engineering",
+      "summarizer"
+    ],
+    "搜索工具": [
+      "web-search-skill"
+    ],
+    "数据管理": [
+      "bitable-core"
+    ]
+  },
+  "skills": [
+    {
+      "name": "social-media-scheduler",
+      "directory": "skills/social-media-scheduler",
+      "has_skill_md": true,
+      "size_mb": 0.003,
+      "description": "Plan, draft, and organize social media content across platforms. Create content calendars, write platform-optimized posts, and maintain consistent pos",
+      "display_name": "Social Media Scheduler",
+      "language": "未知",
+      "main_file": "无",
+      "test_skill_md": "✅",
+      "test_main_file": "❌",
+      "test_directory": "✅",
+      "status": "🔴 不可用",
+      "availability_score": 66
+    },
+    {
+      "name": "agent-team-orchestration",
+      "directory": "skills/agent-team-orchestration",
+      "has_skill_md": true,
+      "size_mb": 0.02,
+      "description": "\"Orchestrate multi-agent teams with defined roles, task lifecycles, handoff protocols, and review workflows. Use when: (1) Setting up a team of 2+ age",
+      "display_name": "Agent Team Orchestration",
+      "language": "未知",
+      "main_file": "无",
+      "test_skill_md": "✅",
+      "test_main_file": "❌",
+      "test_directory": "✅",
+      "status": "🔴 不可用",
+      "availability_score": 66
+    },
+    {
+      "name": "auto-content-generator",
+      "directory": "skills/auto-content-generator",
+      "has_skill_md": true,
+      "size_mb": 0.019,
+      "display_name": "Automated Content Generation Pipeline Skill",
+      "language": "未知",
+      "main_file": "无",
+      "test_skill_md": "✅",
+      "test_main_file": "❌",
+      "test_directory": "✅",
+      "status": "🔴 不可用",
+      "availability_score": 66
+    },
+    {
+      "name": "memory-manager",
+      "directory": "skills/memory-manager",
+      "has_skill_md": true,
+      "size_mb": 0.029,
+      "description": "Local memory management for agents. Compression detection, auto-snapshots, and semantic search. Use when agents need to detect compression risk before",
+      "display_name": "Memory Manager",
+      "language": "Shell",
+      "main_file": "search.sh",
+      "test_skill_md": "✅",
+      "test_main_file": "✅",
+      "test_directory": "✅",
+      "status": "🟢 可用",
+      "availability_score": 100
+    },
+    {
+      "name": "context-engineering",
+      "directory": "skills/context-engineering",
+      "has_skill_md": true,
+      "size_mb": 0.041,
+      "description": "This skill should be used when the user asks to \"compress context\", \"summarize conversation history\", \"implement compaction\", \"reduce token usage\", or",
+      "display_name": "Context Compression Strategies",
+      "language": "Python",
+      "main_file": "scripts/compression_evaluator.py",
+      "test_skill_md": "✅",
+      "test_main_file": "✅",
+      "test_directory": "✅",
+      "status": "🟢 可用",
+      "availability_score": 100
+    },
+    {
+      "name": "brw-content-idea-generator",
+      "directory": "skills/brw-content-idea-generator",
+      "has_skill_md": true,
+      "size_mb": 0.006,
+      "description": "Generate content ideas rooted in positioning. Use when someone needs \"content ideas,\" \"what should I post,\" \"blog topics,\" \"LinkedIn ideas,\" or is stu",
+      "display_name": "Content Idea Generator",
+      "language": "未知",
+      "main_file": "无",
+      "test_skill_md": "✅",
+      "test_main_file": "❌",
+      "test_directory": "✅",
+      "status": "🔴 不可用",
+      "availability_score": 66
+    },
+    {
+      "name": "bitable-core",
+      "directory": "skills/bitable-core",
+      "has_skill_md": true,
+      "size_mb": 0.062,
+      "display_name": "备份方案3: 简化API调用",
+      "language": "Python",
+      "main_file": "integrate_with_workflow.py",
+      "test_skill_md": "✅",
+      "test_main_file": "✅",
+      "test_directory": "✅",
+      "status": "🟢 可用",
+      "availability_score": 100
+    },
+    {
+      "name": "agent-council",
+      "directory": "skills/agent-council",
+      "has_skill_md": true,
+      "size_mb": 0.049,
+      "description": "Complete toolkit for creating autonomous AI agents and managing Discord channels for OpenClaw. Use when setting up multi-agent systems, creating new a",
+      "display_name": "Or manual install",
+      "language": "Python",
+      "main_file": "scripts/setup_channel.py",
+      "test_skill_md": "✅",
+      "test_main_file": "✅",
+      "test_directory": "✅",
+      "status": "🟢 可用",
+      "availability_score": 100
+    },
+    {
+      "name": "web-search-skill",
+      "directory": "skills/web-search-skill",
+      "has_skill_md": true,
+      "size_mb": 0.046,
+      "description": "|",
+      "display_name": "或者自定义API",
+      "language": "JavaScript",
+      "main_file": "utils.js",
+      "test_skill_md": "✅",
+      "test_main_file": "✅",
+      "test_directory": "✅",
+      "status": "🟢 可用",
+      "availability_score": 100
+    },
+    {
+      "name": "agent-orchestrator",
+      "directory": "skills/agent-orchestrator",
+      "has_skill_md": true,
+      "size_mb": 0.02,
+      "description": "|",
+      "display_name": "Agent Orchestrator",
+      "language": "未知",
+      "main_file": "无",
+      "test_skill_md": "✅",
+      "test_main_file": "❌",
+      "test_directory": "✅",
+      "status": "🔴 不可用",
+      "availability_score": 66
+    },
+    {
+      "name": "summarizer",
+      "directory": "skills/summarizer",
+      "has_skill_md": true,
+      "size_mb": 0.009,
+      "description": "Distill content to its essence with audience-aware compression, format selection, and quality verification.",
+      "language": "未知",
+      "main_file": "无",
+      "test_skill_md": "✅",
+      "test_main_file": "❌",
+      "test_directory": "✅",
+      "status": "🔴 不可用",
+      "availability_score": 66
+    },
+    {
+      "name": "agent-evaluation",
+      "directory": "skills/agent-evaluation",
+      "has_skill_md": true,
+      "size_mb": 0.002,
+      "description": "\"Testing and benchmarking LLM agents including behavioral testing, capability assessment, reliability metrics, and production monitoring—where even to",
+      "display_name": "Agent Evaluation",
+      "language": "未知",
+      "main_file": "无",
+      "test_skill_md": "✅",
+      "test_main_file": "❌",
+      "test_directory": "✅",
+      "status": "🔴 不可用",
+      "availability_score": 66
+    },
+    {
+      "name": "xiaohongshu-title",
+      "directory": "skills/xiaohongshu-title",
+      "has_skill_md": true,
+      "size_mb": 0.007,
+      "description": "Maximize CTR (Click-Through Rate) by leveraging emotional hooks and platform algorithms.",
+      "language": "Python",
+      "main_file": "validator.py",
+      "test_skill_md": "✅",
+      "test_main_file": "✅",
+      "test_directory": "✅",
+      "status": "🟢 可用",
+      "availability_score": 100
+    }
+  ],
+  "summary": {
+    "available": 6,
+    "partially_available": 0,
+    "unavailable": 7,
+    "average_score": 81.7
+  }
+}

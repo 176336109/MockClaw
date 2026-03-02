@@ -6388,3 +6388,84 @@ Kimi模型**特别适合**：
 2026-03-02T10:30:59.709Z [feishu] feishu[main]: dispatching to agent (session=agent:main:main)
 2026-03-02T10:30:59.751Z [feishu] feishu[main]: dispatch complete (queuedFinal=false, replies=0)
 2026-03-02T10:32:04.497Z [ws] ⇄ res ✓ chat.history 116ms conn=81b075e6…1114 id=022c161c…390b
+2026-03-02T10:34:27.695Z [feishu] feishu[main]: received message from ou_a447c005ab197bcfcc56aa0cc97877c9 in oc_798fd1fdf0df7b46650c8ce8d503cd9b (p2p)
+2026-03-02T10:34:27.700Z [feishu] feishu[main]: dispatching to agent (session=agent:main:main)
+2026-03-02T10:34:27.746Z [feishu] feishu[main]: dispatch complete (queuedFinal=false, replies=0)
+2026-03-02T10:37:35.908Z [ws] ⇄ res ✓ chat.history 50ms conn=81b075e6…1114 id=78d7b831…338f
+2026-03-02T10:40:10.633Z [feishu] feishu[main]: received message from ou_a447c005ab197bcfcc56aa0cc97877c9 in oc_798fd1fdf0df7b46650c8ce8d503cd9b (p2p)
+2026-03-02T10:40:10.637Z [feishu] feishu[main]: dispatching to agent (session=agent:main:main)
+2026-03-02T10:40:10.684Z [feishu] feishu[main]: dispatch complete (queuedFinal=false, replies=0)
+2026-03-02T18:57:30.764+08:00 [error]: [
+  AxiosError: getaddrinfo ENOTFOUND open.feishu.cn
+      at AxiosError.from (/opt/homebrew/lib/node_modules/openclaw/node_modules/axios/lib/core/AxiosError.js:7:28)
+      at RedirectableRequest.handleRequestError (/opt/homebrew/lib/node_modules/openclaw/node_modules/axios/lib/adapters/http.js:820:25)
+      at RedirectableRequest.emit (node:events:508:20)
+      at ClientRequest.eventHandlers.<computed> (/opt/homebrew/lib/node_modules/openclaw/node_modules/follow-redirects/index.js:49:24)
+      at ClientRequest.emit (node:events:508:20)
+      at emitErrorEvent (node:_http_client:108:11)
+      at TLSSocket.socketErrorListener (node:_http_client:575:5)
+      at TLSSocket.emit (node:events:508:20)
+      at emitErrorNT (node:internal/streams/destroy:170:8)
+      at emitErrorCloseNT (node:internal/streams/destroy:129:3)
+      at Axios.request (/opt/homebrew/lib/node_modules/openclaw/node_modules/axios/lib/core/Axios.js:46:41)
+      at processTicksAndRejections (node:internal/process/task_queues:104:5) {
+    isAxiosError: true,
+    code: 'ENOTFOUND',
+    config: {
+      transitional: [Object],
+      adapter: [Array],
+      transformRequest: [Array],
+      transformResponse: [Array],
+      timeout: 0,
+      xsrfCookieName: 'XSRF-TOKEN',
+      xsrfHeaderName: 'X-XSRF-TOKEN',
+      maxContentLength: -1,
+      maxBodyLength: -1,
+      env: [Object],
+      validateStatus: [Function: validateStatus],
+      headers: [Object [AxiosHeaders]],
+      method: 'get',
+      url: 'https://open.feishu.cn/open-apis/bot/v3/info',
+      params: {},
+      allowAbsoluteUrls: true,
+      data: undefined
+    },
+    request: Writable {
+      _events: [Object],
+      _writableState: [WritableState],
+      _maxListeners: undefined,
+      _options: [Object],
+      _ended: true,
+      _ending: true,
+      _redirectCount: 0,
+      _redirects: [],
+      _requestBodyLength: 0,
+      _requestBodyBuffers: [],
+      _eventsCount: 3,
+      _onNativeResponse: [Function (anonymous)],
+      _currentRequest: [ClientRequest],
+      _currentUrl: 'https://open.feishu.cn/open-apis/bot/v3/info',
+      _timeout: null,
+      Symbol(shapeMode): true,
+      Symbol(kCapture): false
+    },
+    cause: Error: getaddrinfo ENOTFOUND open.feishu.cn
+        at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:121:26) {
+      errno: -3008,
+      code: 'ENOTFOUND',
+      syscall: 'getaddrinfo',
+      hostname: 'open.feishu.cn'
+    }
+  }
+]
+2026-03-02T10:57:34.890Z [ws] ⇄ res ✓ chat.history 147ms conn=81b075e6…1114 id=01176c33…95fe
+2026-03-02T10:57:53.658Z [ws] ⇄ res ✓ node.list 73ms conn=81b075e6…1114 id=8e85f90c…19ad
+2026-03-02T11:05:52.513Z [feishu] feishu[main]: received message from ou_a447c005ab197bcfcc56aa0cc97877c9 in oc_798fd1fdf0df7b46650c8ce8d503cd9b (p2p)
+2026-03-02T11:05:52.524Z [feishu] feishu[main]: dispatching to agent (session=agent:main:main)
+2026-03-02T11:06:11.245Z [feishu] skipping duplicate message om_x100b5562be2674b0b3b0cb068fa70bf
+2026-03-02T11:12:34.591Z [ws] ⇄ res ✓ channels.status 1333ms conn=81b075e6…1114 id=29d8059d…cd9f
+2026-03-02T11:12:55.119Z [ws] ⇄ res ✓ channels.status 579ms conn=81b075e6…1114 id=1cc2cd3e…26f1
+2026-03-02T11:13:16.128Z [ws] ⇄ res ✓ chat.history 68ms conn=81b075e6…1114 id=ee51d241…4c73
+2026-03-02T19:13:35.678+08:00 typing TTL reached (2m); stopping typing indicator
+2026-03-02T11:15:52.730Z [feishu] feishu[main]: dispatch complete (queuedFinal=false, replies=0)
+2026-03-02T11:16:28.400Z [ws] ⇄ res ✓ chat.send 56ms runId=580ca399-0b88-48b8-ba7e-f0e6b2dd5111 conn=81b075e6…1114 id=fcefdd71…711e

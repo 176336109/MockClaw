@@ -1,0 +1,16 @@
+{
+  "root": "/Users/mocklab/.openclaw/workspace",
+  "port": 4310,
+  "maxFileSize": 5242880,
+  "ignorePatterns": [
+    "node_modules",
+    ".git",
+    ".DS_Store"
+  ],
+  "features": {
+    "mermaid": true,
+    "toc": true,
+    "search": false
+  }
+}
+

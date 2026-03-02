@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenClaw Workspace Viewer</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/styles/github.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.5.0/github-markdown-light.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/markdown-it@14.1.0/dist/markdown-it.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/markdown-it-task-lists@2.1.1/dist/markdown-it-task-lists.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/markdown-it-emoji@3.0.0/dist/markdown-it-emoji.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.9.1/dist/mermaid.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/markmap-view@0.17.0/dist/index.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.17.0/dist/index.min.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <i class="fa-solid fa-folder-tree"></i> OpenClaw Workspace
+    </div>
+    <div class="actions">
+      <button id="toggle-view-btn" class="btn" title="切换思维导图/文档视图">
+        <i class="fa-solid fa-diagram-project"></i> 导图模式
+      </button>
+      <input id="search" placeholder="输入文件名搜索..." />
+    </div>
+  </header>
+  <div class="container">
+    <aside class="sidebar">
+      <div id="tree" class="tree"></div>
+    </aside>
+    <main class="main">
+      <div id="breadcrumb" class="breadcrumb"></div>
+      <div id="view-container" class="view-container">
+        <article id="content" class="content markdown-body">请选择左侧文件...</article>
+        <svg id="markmap" class="markmap-svg" style="display:none"></svg>
+      </div>
+      <nav id="toc" class="toc"></nav>
+    </main>
+  </div>
+  <script>
+    mermaid.initialize({ startOnLoad: false, theme: 'default' })
+  </script>
+  <script src="client.js"></script>
+</body>
+</html>
+

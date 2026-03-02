@@ -1,0 +1,144 @@
+{
+  "test_time": "2026-03-02T18:45:16.406710",
+  "total_tested": 5,
+  "test_summary": {
+    "available": 4,
+    "partially_available": 0,
+    "unavailable": 1,
+    "average_score": 93.2
+  },
+  "test_results": [
+    {
+      "skill_name": "bitable-core",
+      "skill_id": "SK_007",
+      "test_time": "2026-03-02T18:45:16.403453",
+      "tests": {
+        "skill_md": {
+          "status": "✅ 通过",
+          "size_bytes": 6059,
+          "has_description": true
+        },
+        "main_file": {
+          "status": "✅ 通过",
+          "file": "integrate_with_workflow.py",
+          "size_bytes": 12852,
+          "language": "Python"
+        },
+        "directory_structure": {
+          "status": "✅ 通过",
+          "file_count": 5,
+          "dir_count": 0,
+          "total_items": 5
+        }
+      },
+      "overall_status": "🟢 可用",
+      "availability_score": 100
+    },
+    {
+      "skill_name": "web-search-skill",
+      "skill_id": "SK_009",
+      "test_time": "2026-03-02T18:45:16.404158",
+      "tests": {
+        "skill_md": {
+          "status": "✅ 通过",
+          "size_bytes": 4484,
+          "has_description": true
+        },
+        "main_file": {
+          "status": "✅ 通过",
+          "file": "utils.js",
+          "size_bytes": 7197,
+          "language": "JavaScript"
+        },
+        "directory_structure": {
+          "status": "✅ 通过",
+          "file_count": 7,
+          "dir_count": 1,
+          "total_items": 8
+        }
+      },
+      "overall_status": "🟢 可用",
+      "availability_score": 100
+    },
+    {
+      "skill_name": "memory-manager",
+      "skill_id": "SK_004",
+      "test_time": "2026-03-02T18:45:16.404771",
+      "tests": {
+        "skill_md": {
+          "status": "✅ 通过",
+          "size_bytes": 6989,
+          "has_description": true
+        },
+        "main_file": {
+          "status": "✅ 通过",
+          "file": "search.sh",
+          "size_bytes": 1863,
+          "language": "Shell"
+        },
+        "directory_structure": {
+          "status": "✅ 通过",
+          "file_count": 12,
+          "dir_count": 1,
+          "total_items": 13
+        }
+      },
+      "overall_status": "🟢 可用",
+      "availability_score": 100
+    },
+    {
+      "skill_name": "context-engineering",
+      "skill_id": "SK_005",
+      "test_time": "2026-03-02T18:45:16.405380",
+      "tests": {
+        "skill_md": {
+          "status": "✅ 通过",
+          "size_bytes": 12344,
+          "has_description": true
+        },
+        "main_file": {
+          "status": "✅ 通过",
+          "file": "scripts/compression_evaluator.py",
+          "size_bytes": 21759,
+          "language": "Python"
+        },
+        "directory_structure": {
+          "status": "✅ 通过",
+          "file_count": 5,
+          "dir_count": 3,
+          "total_items": 8
+        }
+      },
+      "overall_status": "🟢 可用",
+      "availability_score": 100
+    },
+    {
+      "skill_name": "summarizer",
+      "skill_id": "SK_011",
+      "test_time": "2026-03-02T18:45:16.406248",
+      "tests": {
+        "skill_md": {
+          "status": "✅ 通过",
+          "size_bytes": 2253,
+          "has_description": true
+        },
+        "main_file": {
+          "status": "⚠️ 警告",
+          "error": "未找到可执行文件"
+        },
+        "directory_structure": {
+          "status": "✅ 通过",
+          "file_count": 5,
+          "dir_count": 1,
+          "total_items": 6
+        }
+      },
+      "overall_status": "🔴 不可用",
+      "availability_score": 66
+    }
+  ],
+  "recommendations": [
+    "🟢 可用Skill: bitable-core, web-search-skill, memory-manager, context-engineering 可以立即使用",
+    "🔴 不可用Skill: summarizer 需要修复或替换"
+  ]
+}
