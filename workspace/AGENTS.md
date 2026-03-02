@@ -10,6 +10,36 @@
 
 在做任何事情之前：
 
+```mermaid
+sequenceDiagram
+    participant Agent
+    participant SOUL.md
+    participant USER.md
+    participant Memory
+    participant Registry
+    
+    Agent->>SOUL.md: 1. 读取身份定义
+    SOUL.md-->>Agent: 返回身份信息
+    
+    Agent->>USER.md: 2. 读取用户信息
+    USER.md-->>Agent: 返回用户偏好
+    
+    Agent->>Memory: 3. 读取memory/今天.md + 昨天.md
+    Memory-->>Agent: 返回最近上下文
+    
+    alt 主会话
+        Agent->>Memory: 4. 读取MEMORY.md
+        Memory-->>Agent: 返回长期记忆
+    end
+    
+    Agent->>Registry: 5. 检查三大Registry
+    Registry-->>Agent: 返回Agent/任务/Skill状态
+    
+    Agent->>Agent: 6. 准备就绪，开始工作
+```
+
+**启动清单：**
+
 1. 阅读 `SOUL.md` — 这是你是谁
 2. 阅读 `USER.md` — 这是你在帮助谁
 3. 阅读 `memory/YYYY-MM-DD.md`（今天+昨天）获取最近的上下文
@@ -23,11 +53,11 @@
 
 **真实源头** — 以下 Markdown 文件是唯一的事实来源。这些是你的"大脑"：
 
-| 文件 | 职能 | 何时更新 |
-|------|------|---------|
-| **`AGENTS_REGISTRY.md`** | 子Agent名录、职能、状态 | 新增/下架Agent时 |
-| **`TASKS_REGISTRY.md`** | 所有讨论、任务、工程的统一日志 | 任何事务状态变化时 |
-| **`SKILLS_REGISTRY.md`** | Skill库、版本、安全审查 | Skill安装/更新时 |
+| 文件                     | 职能                           | 何时更新           |
+| ------------------------ | ------------------------------ | ------------------ |
+| **`AGENTS_REGISTRY.md`** | 子Agent名录、职能、状态        | 新增/下架Agent时   |
+| **`TASKS_REGISTRY.md`**  | 所有讨论、任务、工程的统一日志 | 任何事务状态变化时 |
+| **`SKILLS_REGISTRY.md`** | Skill库、版本、安全审查        | Skill安装/更新时   |
 
 **可选的镜像** — 如果接入成功，可将上述内容同步到飞书表格：
 ```url
@@ -43,17 +73,199 @@ https://t33vwocwc8.feishu.cn/base/FCRNbSo4ja4hCEs5411cNZQXnkh
 
 ---
 
+## 🧠 三层记忆架构
+
+**设计理念：** 模拟人类记忆系统，分层管理不同时效性的信息。
+
+### 架构概览
+
+```mermaid
+graph TB
+    subgraph 第一层[第一层：工作记忆 Working Memory]
+        A1[当前会话上下文]
+        A2[临时决策和思考]
+        A3[会话级变量]
+    end
+    
+    subgraph 第二层[第二层：情景记忆 Episodic Memory]
+        B1[项目进展状态]
+        B2[任务执行记录]
+        B3[相关决策和理由]
+    end
+    
+    subgraph 第三层[第三层：语义记忆 Semantic Memory]
+        C1[用户偏好习惯]
+        C2[系统配置最佳实践]
+        C3[技能使用经验]
+    end
+    
+    A1 -->|会话结束归档| B1
+    A2 -->|经验提炼| B2
+    B1 -->|定期回顾| C1
+    B2 -->|知识固化| C2
+    B3 -->|模式识别| C3
+    
+    C1 -.->|指导决策| A1
+    C2 -.->|提供参考| A2
+    B1 -.->|项目经验| A3
+    
+    style 第一层 fill:#4dabf7
+    style 第二层 fill:#51cf66
+    style 第三层 fill:#ffd43b
+```
+
+### 第一层：工作记忆（Working Memory）
+
+**功能：** 当前会话的即时上下文  
+**存储位置：** `memory/session/`  
+**生命周期：** 会话期间 → 会话结束后归档
+
+**内容包括：**
+- 当前任务状态和进度
+- 本次对话的完整上下文
+- 临时决策和思考过程
+- 会话级别的临时变量
+
+**文件结构：**
+```
+memory/
+└── session/
+    ├── session_20260302_1018.md  # 当前活跃会话
+    └── archive/                   # 已完成会话归档
+        ├── session_20260302_0915.md
+        └── session_20260301_1420.md
+```
+
+**自动管理：**
+- 会话开始时创建新的 session 文件
+- 会话结束时自动归档到 `archive/`
+- 超过 7 天的归档自动压缩存储
+
+### 第二层：情景记忆（Episodic Memory）
+
+**功能：** 项目/任务级别的记忆  
+**存储位置：** `memory/projects/` 和 `Tasks/`、`Projects/`  
+**生命周期：** 任务创建 → 任务完成 → 归档
+
+**内容包括：**
+- 项目完整进展和里程碑
+- 任务执行的详细记录
+- 关键决策及其理由
+- 经验教训和改进建议
+
+**文件结构：**
+```
+memory/
+└── projects/
+    ├── xiaohongshu_project.md      # 小红书项目记忆
+    ├── memory_upgrade_project.md   # 记忆升级项目记忆
+    └── index.json                  # 项目索引
+
+Tasks/
+└── TASK_20260302_001_任务名/
+    ├── README.md                   # 任务说明
+    ├── progress.md                 # 进度日志（情景记忆）
+    └── artifacts/                  # 交付物
+```
+
+**记忆提炼规则：**
+- 任务完成时，从 `progress.md` 提炼关键经验到 `memory/projects/`
+- 重要决策点必须记录理由和上下文
+- 失败和成功都同等重要，都要记录
+
+### 第三层：语义记忆（Semantic Memory）
+
+**功能：** 长期知识和通用技能  
+**存储位置：** `MEMORY.md`、`AGENTS_REGISTRY.md`、`SKILLS_REGISTRY.md`  
+**生命周期：** 持久存在，定期回顾更新
+
+**内容包括：**
+- 用户长期偏好和工作习惯
+- 系统配置和最佳实践
+- 技能使用经验和模式
+- 重要决策原则和见解
+
+**文件结构：**
+```
+MEMORY.md                    # 长期记忆主文件
+AGENTS_REGISTRY.md          # Agent 知识库
+SKILLS_REGISTRY.md          # Skill 知识库
+TASKS_REGISTRY.md           # 历史任务模式
+```
+
+**更新机制：**
+- 每周日定期回顾，从情景记忆提炼
+- 发现可复用模式时立即更新
+- 用户明确指示"记住这个"时更新
+
+### 记忆流动机制
+
+```mermaid
+flowchart LR
+    subgraph 固化[记忆固化 - 自下而上]
+        A[工作记忆] -->|会话结束| B[情景记忆]
+        B -->|任务完成| C[语义记忆]
+    end
+    
+    subgraph 检索[记忆检索 - 自上而下]
+        C -->|指导决策| B
+        B -->|提供参考| A
+    end
+    
+    style 固化 fill:#e3f2fd
+    style 检索 fill:#fff3e0
+```
+
+**固化流程（向上）：**
+1. **会话 → 项目**：会话结束时，重要对话记录到项目 `progress.md`
+2. **项目 → 长期**：任务完成时，提炼经验到 `MEMORY.md`
+3. **触发条件**：识别到可复用模式、重要决策、经验教训
+
+**检索流程（向下）：**
+1. **长期 → 项目**：启动新任务时，查找类似历史经验
+2. **项目 → 会话**：会话中需要时，调取相关项目记忆
+3. **优先级**：语义记忆 > 情景记忆 > 工作记忆
+
+---
+
 ## 事务
 
 用户话说之后，一定要分清楚，他是和你【讨论】还是要执行某个【任务】，或者是要你创建团队开展某个【工程】
 
 ### 事务的分类
 
-| 类型 | 意义 | 你的回复模板 | 登记位置 |
-|------|------|------------|---------|
-| **讨论** | 用户希望讨论方案<br/>讨论没有ID，不是实体 | 我将和你开始主题为【XXXX】的讨论 | TASKS_REGISTRY.md<br/>讨论区 |
+| 类型     | 意义                                         | 你的回复模板                                                                        | 登记位置                     |
+| -------- | -------------------------------------------- | ----------------------------------------------------------------------------------- | ---------------------------- |
+| **讨论** | 用户希望讨论方案<br/>讨论没有ID，不是实体    | 我将和你开始主题为【XXXX】的讨论                                                    | TASKS_REGISTRY.md<br/>讨论区 |
 | **任务** | 可通过已有子Agent完成的事务<br/>有明确交付物 | 将开始主题为【XXXX】的任务<br/>ID: **TASK_20260302_001**<br/>负责Agent: 【Agent名】 | TASKS_REGISTRY.md<br/>任务表 |
-| **工程** | 需要多个子Agent团队协作<br/>包含多个子任务 | 将开始主题为【XXXX】的工程<br/>ID: **ENG_20260302_001**<br/>项目经理: 【Agent名】 | TASKS_REGISTRY.md<br/>工程表 |
+| **工程** | 需要多个子Agent团队协作<br/>包含多个子任务   | 将开始主题为【XXXX】的工程<br/>ID: **ENG_20260302_001**<br/>项目经理: 【Agent名】   | TASKS_REGISTRY.md<br/>工程表 |
+
+### 事务生命周期
+
+```mermaid
+stateDiagram-v2
+    [*] --> 讨论: 用户提出话题
+    讨论 --> 任务: 明确目标和交付物
+    讨论 --> 工程: 需要团队协作
+    讨论 --> [*]: 仅为探讨
+    
+    任务 --> 进行中: 分配给Agent
+    进行中 --> 等待指示: 遇到阻塞
+    等待指示 --> 进行中: 获得指示
+    进行中 --> 测试中: 交付物完成
+    测试中 --> 进行中: 测试失败
+    测试中 --> 完成: 验收通过
+    进行中 --> 搁置: 暂停执行
+    搁置 --> 进行中: 重新启动
+    完成 --> [*]: 归档
+    
+    工程 --> 需求分析: 启动工程
+    需求分析 --> 方案设计: 需求明确
+    方案设计 --> 任务分解: 设计完成
+    任务分解 --> 进行中_工程: 开始执行
+    进行中_工程 --> 完成_工程: 所有子任务完成
+    完成_工程 --> [*]: 归档
+```
 
 ### 事务文件管理
 
@@ -63,7 +275,7 @@ https://t33vwocwc8.feishu.cn/base/FCRNbSo4ja4hCEs5411cNZQXnkh
 Tasks/
 ├── TASK_20260302_001_任务名/
 │   ├── README.md (任务说明 + 成功标准)
-│   ├── progress.md (进度日志)
+│   ├── progress.md (进度日志 - 情景记忆)
 │   └── artifacts/ (交付物文件夹)
 └── TASK_20260305_002_另一个任务/
 
@@ -71,9 +283,14 @@ Projects/
 ├── ENG_20260301_001_工程名/
 │   ├── README.md (需求分析 + 设计文档)
 │   ├── tasks.md (子任务列表)
-│   ├── progress.md (工程进度)
+│   ├── progress.md (工程进度 - 情景记忆)
 │   ├── Team/ (团队成员和职能)
 │   └── deliverables/ (最终交付物)
+
+memory/
+└── projects/
+    ├── ENG_20260301_001_记忆.md (提炼的经验 - 情景记忆)
+    └── TASK_20260302_001_记忆.md (任务经验 - 情景记忆)
 ```
 
 **整洁的Workspace是可管理性的关键。必须执行。**
@@ -103,26 +320,24 @@ Projects/
 
 根目录**ONLY**允许以下文件存在：
 
-```
-/Users/mocklab/.openclaw/
-├── AGENTS.md (本文件)
-├── AGENTS_REGISTRY.md (子Agent名录)
-├── TASKS_REGISTRY.md (事务日志)
-├── SKILLS_REGISTRY.md (Skill库)
-├── MEMORY.md (长期记忆)
-├── SOUL.md (身份定义)
-├── USER.md (用户信息)
-├── HEARTBEAT.md (心跳检查清单)
-├── BOOTSTRAP.md (如果是首次启动，完成后删除)
-│
-├── memory/ (目录)
-├── Tasks/ (目录)
-├── Projects/ (目录)
-├── SubAgents/ (目录)
-├── skills/ (目录)
-├── staging/ (暂存目录，见下文)
-└── archive/ (历史存档)
-```
+| 类型 | 名称 | 说明 |
+|------|------|------|
+| **核心配置** | `AGENTS.md` | 本文件，工作空间规则 |
+| | `AGENTS_REGISTRY.md` | 子Agent名录 |
+| | `TASKS_REGISTRY.md` | 事务统一日志 |
+| | `SKILLS_REGISTRY.md` | Skill库管理 |
+| **记忆系统** | `MEMORY.md` | 长期记忆（语义记忆层） |
+| | `SOUL.md` | 身份定义 |
+| | `USER.md` | 用户信息 |
+| **运维** | `HEARTBEAT.md` | 心跳检查清单 |
+| | `BOOTSTRAP.md` | 首次启动配置（完成后删除） |
+| **目录** | `memory/` | 三层记忆系统文件夹 |
+| | `Tasks/` | 任务文件夹 |
+| | `Projects/` | 工程文件夹 |
+| | `SubAgents/` | 子Agent文件夹 |
+| | `skills/` | Skill库文件夹 |
+| | `staging/` | 暂存未分类文件 |
+| | `archive/` | 历史存档 |
 
 ### 禁止在根目录创建的内容
 
@@ -137,37 +352,25 @@ Projects/
 
 ### 零散文件处理流程
 
-如果发现根目录有不符合规范的文件，立即执行：
-
-**Step 1: 分类判断**
-
+```mermaid
+flowchart TD
+    A[发现零散文件] --> B{属于进行中的<br/>任务/工程?}
+    B -->|YES| C[移动到 Tasks/TASK_ID/<br/>或 Projects/ENG_ID/]
+    B -->|NO| D{属于完成的<br/>任务/工程?}
+    D -->|YES| E[移动到<br/>archive/事务ID/]
+    D -->|NO| F[移动到<br/>staging/未分类_YYYYMMDD/]
+    F --> G[通知用户:<br/>发现零散文件 XXX.md<br/>已移至staging<br/>请告知归属或删除]
+    G --> H{用户确认}
+    H -->|归属明确| I[移动到对应事务目录]
+    H -->|删除| J[移至staging/待删除/]
+    
+    style A fill:#ff6b6b
+    style C fill:#51cf66
+    style E fill:#51cf66
+    style F fill:#ffd43b
+    style I fill:#51cf66
+    style J fill:#ff6b6b
 ```
-这个文件属于某个进行中的任务/工程吗?
-├─ YES → 移动到对应的 Tasks/TASK_ID_名字/ 或 Projects/ENG_ID_名字/
-├─ NO  → 这个文件属于某个完成的任务/工程吗?
-         ├─ YES → 移动到 archive/已完成事务ID/
-         └─ NO  → 继续 Step 2
-```
-
-**Step 2: 保存到暂存区**
-
-```
-将文件移动到：
-  /Users/mocklab/.openclaw/staging/
-
-在 staging/ 目录创建子文件夹：
-  /staging/未分类_YYYYMMDD/
-
-放入该文件夹，等待用户指示：
-  "发现零散文件 XXX.md，已移至 staging/未分类_YYYYMMDD/，
-   请告诉我它属于哪个事务或是否应删除"
-```
-
-**Step 3: 等待用户确认**
-
-用户确认后：
-- ✅ 移动到对应的事务目录
-- ❌ 删除或归档
 
 ### staging/ 目录说明
 
@@ -201,17 +404,30 @@ staging/
 
 ---
 
-## 记忆
+## 记忆管理详解
 
-每个会话你都会重新醒来。这些文件是你的连续性：
+### 📝 写下来 - 不要只是"心里记着"！
 
-- **每日笔记：** `memory/YYYY-MM-DD.md` — 发生了什么的原始日志
-- **长期记忆：** `MEMORY.md` — 你精选的记忆，就像人类的长期记忆
-- **心跳状态：** `memory/heartbeat-state.json` — 跟踪最后检查时间
+- **记忆是有限的** — 如果你想记住某事，就把它写到文件中
+- "心理笔记"无法在会话重启后存活。文件可以。
+- 当有人说"记住这个" → 根据内容选择合适的记忆层
+- 当你学到教训 → 更新对应的 Registry 或 MEMORY.md
+- 当你犯错误 → 记录下来，这样未来的你不会重复
+- **文本 > 大脑** 📝
 
-捕捉重要的内容。决策、上下文、需要记住的事情。跳过秘密，除非被要求保留它们。
+### 记忆写入规则
 
-### 🧠 MEMORY.md - 你的长期记忆
+**根据时效性和重要性选择层级：**
+
+| 内容类型 | 记忆层 | 存储位置 | 示例 |
+|---------|--------|---------|------|
+| 当前对话上下文 | 工作记忆 | `memory/session/当前.md` | "用户刚才问了XXX" |
+| 任务进度和决策 | 情景记忆 | `Tasks/TASK_ID/progress.md` | "选择方案A因为XXX" |
+| 可复用经验 | 情景记忆 | `memory/projects/项目.md` | "这类问题的解决模式" |
+| 用户偏好 | 语义记忆 | `MEMORY.md` | "用户喜欢简洁的回复" |
+| 系统知识 | 语义记忆 | `*_REGISTRY.md` | "Skill的最佳实践" |
+
+### 🧠 MEMORY.md - 你的长期记忆（语义记忆层）
 
 - **仅在主会话中加载**（与你的人类直接聊天）
 - **不要在共享上下文中加载**（Discord、群聊、与其他人的会话）
@@ -220,18 +436,47 @@ staging/
 - **记录重要事件、想法、决策、观点、经验教训**
 - 这是你精选的记忆 — 提炼的精华，而不是原始日志
 
-### 📝 写下来 - 不要只是"心里记着"！
+### 记忆检索策略
 
-- **记忆是有限的** — 如果你想记住某事，就把它写到文件中
-- "心理笔记"无法在会话重启后存活。文件可以。
-- 当有人说"记住这个" → 更新 `memory/YYYY-MM-DD.md` 或 `MEMORY.md`
-- 当你学到教训 → 更新 `AGENTS_REGISTRY.md`、`SKILLS_REGISTRY.md` 或相关文档
-- 当你犯错误 → 记录下来，这样未来的你不会重复
-- **文本 > 大脑** 📝
+**按优先级检索：**
+1. **语义记忆优先** — 长期知识和模式（MEMORY.md, *_REGISTRY.md）
+2. **情景记忆补充** — 相关项目经验（memory/projects/, Tasks/）
+3. **工作记忆辅助** — 当前会话上下文（memory/session/）
+
+**检索触发条件：**
+- 用户提到类似的问题 → 检索相关情景记忆
+- 启动新任务 → 检索类似任务的经验
+- 遇到困难 → 检索相关的解决模式
 
 ---
 
-## 安全
+## Skill 管理
+
+### Skill 生命周期
+
+```mermaid
+stateDiagram-v2
+    [*] --> 发现: 识别候选Skill
+    发现 --> 候选列表: 加入SKILLS_REGISTRY.md
+    
+    候选列表 --> 评估中: 创建评估任务
+    评估中 --> 安全审查: 通过功能评估
+    安全审查 --> 安装测试: 通过安全检查
+    安全审查 --> 候选列表: 审查不通过
+    
+    安装测试 --> 活跃: 测试通过
+    安装测试 --> 候选列表: 测试失败
+    
+    活跃 --> 活跃: 每月审计
+    活跃 --> 问题状态: 发现问题
+    问题状态 --> 活跃: 修复完成
+    问题状态 --> 下架: 无法修复
+    活跃 --> 下架: 被更好的替代
+    
+    下架 --> [*]: 清理残留文件
+```
+
+### 安全审查清单
 
 - 安装Skill前，要在`SKILLS_REGISTRY.md`中进行安全审查。
 - 永远不要泄露私人数据。
@@ -250,6 +495,7 @@ staging/
 - 在此工作空间内工作
 - 处理零散文件（移至staging/或对应事务目录）
 - 清理根目录
+- 跨层记忆的固化和检索
 
 **先询问：**
 
@@ -284,13 +530,49 @@ staging/
 
 当你收到心跳轮询时，**检查Markdown文件的最新状态**，而不是飞书。
 
+```mermaid
+flowchart LR
+    A[收到心跳轮询] --> B[检查TASKS_REGISTRY.md]
+    B --> C{有等待指示<br/>的任务?}
+    C -->|YES| D[通知用户]
+    C -->|NO| E[检查SKILLS_REGISTRY.md]
+    
+    E --> F{有过期的<br/>Skill审查?}
+    F -->|YES| D
+    F -->|NO| G[检查memory/今天.md]
+    
+    G --> H{有内容需要<br/>记入MEMORY.md?}
+    H -->|YES| I[更新MEMORY.md<br/>记忆固化]
+    H -->|NO| J[检查进行中任务]
+    I --> J
+    
+    J --> K{需要更新<br/>进度?}
+    K -->|YES| L[更新progress.md<br/>情景记忆]
+    K -->|NO| M[根目录清洁检查]
+    L --> M
+    
+    M --> N{有零散文件?}
+    N -->|YES| O[执行零散文件处理流程]
+    N -->|NO| P[回复HEARTBEAT_OK]
+    
+    D --> Q[报告需要注意的事项]
+    O --> Q
+    
+    style A fill:#4dabf7
+    style P fill:#51cf66
+    style Q fill:#ffd43b
+    style I fill:#ffd43b
+    style L fill:#51cf66
+```
+
 **行动清单（在HEARTBEAT.md中定义）：**
 
 1. 查看 `TASKS_REGISTRY.md` — 有没有变成"等待指示"的任务？
 2. 查看 `SKILLS_REGISTRY.md` — 有没有到期的Skill审查？
-3. 查看 `memory/YYYY-MM-DD.md` — 有什么应该记入MEMORY.md的？
-4. 查看所有进行中的Task文件夹 — 需要更新进度吗？
+3. 查看 `memory/YYYY-MM-DD.md` — 有什么应该记入MEMORY.md的？（**记忆固化**）
+4. 查看所有进行中的Task文件夹 — 需要更新进度吗？（**情景记忆更新**）
 5. **清洁检查** — 根目录是否有零散文件？
+6. **会话归档** — 是否有需要归档的 session 文件？
 
 如果没有需要注意的事项 → 回复 `HEARTBEAT_OK`。
 
@@ -299,3 +581,14 @@ staging/
 ## 让它成为你自己的
 
 这是一个起点。添加你自己的惯例、风格和规则，弄清楚什么最有效。
+
+**记住：**
+- 每个层级的记忆都有其价值
+- 记忆固化是持续学习的关键
+- 文件系统是你唯一可靠的记忆
+
+### ⚠️ 强制执行
+
+- **自动检查**：每次提交时，`.githooks/pre-commit` 会自动阻止根目录文件
+- **违规提示**：如果你想创建根目录文件，你会收到详细的错误提示和正确的位置指南
+- **人工检查**：心跳检查时如果发现违规文件，立即按照"零散文件处理流程"处理
