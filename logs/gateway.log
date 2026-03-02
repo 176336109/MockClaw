@@ -6359,3 +6359,32 @@ Kimi模型**特别适合**：
 2026-03-02T09:54:55.349Z [feishu] feishu[main]: received message from ou_a447c005ab197bcfcc56aa0cc97877c9 in oc_798fd1fdf0df7b46650c8ce8d503cd9b (p2p)
 2026-03-02T09:54:55.353Z [feishu] feishu[main]: dispatching to agent (session=agent:main:main)
 2026-03-02T09:55:13.179Z [feishu] skipping duplicate message om_x100b5561a81f78b0b3cb80b661980e5
+2026-03-02T10:02:58.175Z [feishu] feishu[main]: dispatch complete (queuedFinal=true, replies=9)
+2026-03-02T10:06:27.189Z [feishu] feishu[main]: received message from ou_a447c005ab197bcfcc56aa0cc97877c9 in oc_798fd1fdf0df7b46650c8ce8d503cd9b (p2p)
+2026-03-02T10:06:27.195Z [feishu] feishu[main]: dispatching to agent (session=agent:main:main)
+2026-03-02T10:06:45.166Z [feishu] skipping duplicate message om_x100b55625cd584a8c2acd98491857bf
+2026-03-02T18:11:04.986+08:00 typing TTL reached (2m); stopping typing indicator
+2026-03-02T10:14:16.194Z [feishu] feishu[main]: received message from ou_a447c005ab197bcfcc56aa0cc97877c9 in oc_798fd1fdf0df7b46650c8ce8d503cd9b (p2p)
+2026-03-02T10:14:16.200Z [feishu] feishu[main]: dispatching to agent (session=agent:main:main)
+2026-03-02T10:14:16.230Z [feishu] feishu[main]: dispatch complete (queuedFinal=false, replies=0)
+2026-03-02T10:14:58.368Z [feishu] feishu[main]: dispatch complete (queuedFinal=true, replies=3)
+2026-03-02T10:16:39.335Z [feishu] feishu[main]: received message from ou_a447c005ab197bcfcc56aa0cc97877c9 in oc_798fd1fdf0df7b46650c8ce8d503cd9b (p2p)
+2026-03-02T10:16:39.341Z [feishu] feishu[main]: dispatching to agent (session=agent:main:main)
+2026-03-02T10:16:39.373Z [feishu] feishu[main]: dispatch complete (queuedFinal=false, replies=0)
+2026-03-02T10:17:54.344Z [ws] ⇄ res ✓ skills.status 152ms conn=81b075e6…1114 id=ea182d85…c9dd
+2026-03-02T10:19:34.096Z [ws] ⇄ res ✓ chat.history 58ms conn=81b075e6…1114 id=667396ea…c6a6
+2026-03-02T10:19:42.500Z [ws] ⇄ res ✓ status 72ms conn=81b075e6…1114 id=1d023508…8753
+2026-03-02T10:20:55.344Z [ws] ⇄ res ✓ chat.history 54ms conn=81b075e6…1114 id=6e38d7e6…66d8
+2026-03-02T10:23:01.492Z [ws] ⇄ res ✓ chat.history 63ms conn=81b075e6…1114 id=0c280aa9…702b
+2026-03-02T10:23:56.663Z [feishu] feishu[main]: received message from ou_a447c005ab197bcfcc56aa0cc97877c9 in oc_798fd1fdf0df7b46650c8ce8d503cd9b (p2p)
+2026-03-02T10:23:56.696Z [feishu] feishu[main]: dispatching to agent (session=agent:main:main)
+2026-03-02T10:24:14.309Z [feishu] skipping duplicate message om_x100b55621d6550a8c45edbe3133bcf6
+2026-03-02T10:25:01.129Z [feishu] feishu[main]: received message from ou_a447c005ab197bcfcc56aa0cc97877c9 in oc_798fd1fdf0df7b46650c8ce8d503cd9b (p2p)
+2026-03-02T10:25:01.132Z [feishu] feishu[main]: dispatching to agent (session=agent:main:main)
+2026-03-02T10:25:01.160Z [feishu] feishu[main]: dispatch complete (queuedFinal=false, replies=0)
+2026-03-02T10:28:25.008Z [ws] ⇄ res ✓ chat.history 67ms conn=81b075e6…1114 id=46d071d2…8bda
+2026-03-02T10:28:25.022Z [feishu] feishu[main]: dispatch complete (queuedFinal=true, replies=3)
+2026-03-02T10:30:59.703Z [feishu] feishu[main]: received message from ou_a447c005ab197bcfcc56aa0cc97877c9 in oc_798fd1fdf0df7b46650c8ce8d503cd9b (p2p)
+2026-03-02T10:30:59.709Z [feishu] feishu[main]: dispatching to agent (session=agent:main:main)
+2026-03-02T10:30:59.751Z [feishu] feishu[main]: dispatch complete (queuedFinal=false, replies=0)
+2026-03-02T10:32:04.497Z [ws] ⇄ res ✓ chat.history 116ms conn=81b075e6…1114 id=022c161c…390b

@@ -115,7 +115,7 @@ graph TB
 ```
 
 ### 第一层：工作记忆（Working Memory）
-
+**已经在核心提示词里面的信息，不入记忆，如果已经存在重复的，核心提示词为准，清理记忆重复内容**
 **功能：** 当前会话的即时上下文  
 **存储位置：** `memory/session/`  
 **生命周期：** 会话期间 → 会话结束后归档
@@ -240,6 +240,11 @@ flowchart LR
 | **任务** | 可通过已有子Agent完成的事务<br/>有明确交付物 | 将开始主题为【XXXX】的任务<br/>ID: **TASK_20260302_001**<br/>负责Agent: 【Agent名】 | TASKS_REGISTRY.md<br/>任务表 |
 | **工程** | 需要多个子Agent团队协作<br/>包含多个子任务   | 将开始主题为【XXXX】的工程<br/>ID: **ENG_20260302_001**<br/>项目经理: 【Agent名】   | TASKS_REGISTRY.md<br/>工程表 |
 
+特别注意！！！
+```
+所有事务相关的代码，必须放到事务目录下面
+```
+
 ### 事务生命周期
 
 ```mermaid
@@ -320,15 +325,18 @@ memory/
 
 根目录**ONLY**允许以下文件存在：
 
+<!-- ...existing code... -->
 | 类型 | 名称 | 说明 |
 |------|------|------|
 | **核心配置** | `AGENTS.md` | 本文件，工作空间规则 |
-| | `AGENTS_REGISTRY.md` | 子Agent名录 |
-| | `TASKS_REGISTRY.md` | 事务统一日志 |
-| | `SKILLS_REGISTRY.md` | Skill库管理 |
+| | `AGENTS_REGISTRY.md` | 子Agent名录，markdown表格 |
+| | `TASKS_REGISTRY.md` | 事务统一日志，markdown表格 |
+| | `SKILLS_REGISTRY.md` | Skill库管理，markdown表格 |
 | **记忆系统** | `MEMORY.md` | 长期记忆（语义记忆层） |
 | | `SOUL.md` | 身份定义 |
 | | `USER.md` | 用户信息 |
+| | `IDENTITY.md` | 身份补充定义 |
+| | `THREE_LAYER_MEMORY_ARCHITECTURE.md` | 三层记忆架构说明 |
 | **运维** | `HEARTBEAT.md` | 心跳检查清单 |
 | | `BOOTSTRAP.md` | 首次启动配置（完成后删除） |
 | **目录** | `memory/` | 三层记忆系统文件夹 |
@@ -338,6 +346,7 @@ memory/
 | | `skills/` | Skill库文件夹 |
 | | `staging/` | 暂存未分类文件 |
 | | `archive/` | 历史存档 |
+<!-- ...existing code... -->
 
 ### 禁止在根目录创建的内容
 
